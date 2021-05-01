@@ -19,6 +19,14 @@ body{
     border-bottom: 5px solid #572EE5;
 }
 
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 1;
+}
+
 .header{
     margin-left: 16px;
     margin-right: 16px;
@@ -63,7 +71,7 @@ header .boton-crear:hover{
 /*barra_busqueda_inicio*/
 .wrapper{
     max-width: 450px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;

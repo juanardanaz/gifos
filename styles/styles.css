@@ -50,8 +50,7 @@ h1{
     font-size: 35px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    width: 934px;
-    height: 100px;
+    text-align: center;
 }
 
 h1 .gifos-text{
@@ -59,10 +58,16 @@ h1 .gifos-text{
     text-transform: uppercase;
 }
 
+.seccion-primera img{
+    position: relative;
+    left: 528px;
+}
+
 h3{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
+    text-align: center;
 }
 
 .trending{
@@ -70,6 +75,7 @@ h3{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
+    text-align: center;
 }
 
 .row{
@@ -83,6 +89,7 @@ div h2{
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     font-weight: 700;
+    text-align: center;
 }
 
 div p{
@@ -90,11 +97,18 @@ div p{
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
+    text-align: center;
 }
 
 .footer{
     display: flex;
     justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-top: 29px;
+    padding-left: 43px;
+    padding-right: 43px;
 }
 
 .footer .redes-sociales{
@@ -110,6 +124,7 @@ footer p{
 
 footer div a{
     color: #CDD6E0;
+    padding-left: 15px;
 }
 
 footer div a:hover{

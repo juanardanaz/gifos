@@ -24,6 +24,8 @@ body{
     margin-right: 16px;
     margin-top: 29px;
     padding-left: 43px;
+    display: flex;
+    justify-content: space-between;
 }
 
 header ul li{
@@ -34,6 +36,12 @@ header ul li{
     text-transform: uppercase;
     list-style-type: none;
     display: inline-block;
+}
+
+header nav ul{
+    position: absolute;
+    right: 120px;
+    top: 54px;
 }
 
 h1{

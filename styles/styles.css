@@ -24,11 +24,12 @@ body{
     margin-right: 16px;
     margin-top: 29px;
     padding-left: 43px;
+    padding-right: 43px;
     display: flex;
     justify-content: space-between;
 }
 
-header ul li{
+header nav ul li{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
@@ -39,10 +40,72 @@ header ul li{
     margin-right: 40px;
 }
 
+header nav ul li:hover{
+    text-decoration: underline;
+}
+
+header nav ul li:active{
+    color: #9CAFC3 ;
+}
+
 header nav ul{
     position: absolute;
     right: 120px;
     top: 54px;
+}
+
+/*barra_busqueda_inicio*/
+.wrapper{
+    max-width: 450px;
+    margin: 150px auto;
+}
+
+.wrapper .search-input{
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    /*box-shadow: 0px 1px 5px 3px #000000;*/
+}
+
+.search-input input{
+    height: 55px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 16px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    border: 1px solid #572EE5;
+}
+
+.search-input .icon-search{
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-input .autocom-box{
+    padding: 10px 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.autocom-box li{
+    list-style: none;
+    padding: 8px 12px;
+    width: 100px;
+    cursor: default;
+    border-radius: 3px;
+    display: none;
+}
+
+.autocom-box li:hover{
+    background-color: #efefef;
 }
 
 h1{
@@ -56,6 +119,14 @@ h1{
 h1 .gifos-text{
     color: #5ED7C6;
     text-transform: uppercase;
+}
+
+.seccion-primera{
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 29px;
+    padding-top: 60px;
+    margin-bottom: 60px;
 }
 
 .seccion-primera img{
@@ -82,6 +153,7 @@ h3{
     background-color: #F3F5F8;
     width: 100%;
     height: 640px;
+    padding-top: 60px;
 }
 
 div h2{
@@ -109,6 +181,8 @@ div p{
     margin-top: 29px;
     padding-left: 43px;
     padding-right: 43px;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 .footer .redes-sociales{

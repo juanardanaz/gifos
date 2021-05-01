@@ -92,6 +92,15 @@ div p{
     font-weight: 400;
 }
 
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer .redes-sociales{
+    display: flex;
+}
+
 footer p{
     color: #000000;
     font-family: 'Roboto', sans-serif;

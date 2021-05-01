@@ -36,6 +36,7 @@ header ul li{
     text-transform: uppercase;
     list-style-type: none;
     display: inline-block;
+    margin-right: 40px;
 }
 
 header nav ul{

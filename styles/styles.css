@@ -293,13 +293,14 @@ footer div a:hover{
         position: absolute;
         transition: all 500ms ease;
         font-family: 'Montserrat', sans-serif;
+        padding-top: 100px;
 
     }
     #btn-menu:checked ~ .menu-mobile ul{
         transform: translateX(-3vw);
         margin: 0;
         z-index: 1;
-        padding-top: 100px;
+        /*padding-top: 100px;*/
     }
     /*inicio_burger-menu_bars*/
     .lbl-menu{
@@ -347,5 +348,34 @@ footer div a:hover{
         padding-top: 10px;
         /*border: 0.5px solid #572EE5;*/
         text-align: center;
+        opacity: 90%;
+        margin-top: 100px;
+        margin-left: -625px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .seccion-primera h1{
+        font-size: 25px;
+    }
+    .seccion-primera .wrapper .ilustracion{
+        width: 60%;
+    }
+    .seccion-primera h3{
+        font-size: 16px;
+    }
+    .seccion-primera .trending{
+        font-size: 14px;
+    }
+    .row h2{
+        font-size: 20px;
+    }
+    .row p{
+        font-size: 16px;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

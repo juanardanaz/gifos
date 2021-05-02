@@ -66,9 +66,35 @@ header .boton-crear:hover{
     color: #FFFFFF;
 }
 
+/*inicio_menu-hamburguesa*/
 #btn-menu{
     display: none;
 }
+
+.menu-mobile{
+    display: none;
+}
+
+.menu-mobile li a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.menu-mobile li a:visited{
+    color: #FFFFFF;
+}
+
+.menu-mobile li a:hover{
+    color: #00F3BB; 
+    text-decoration: line-through;
+}
+
+.menu-mobile li a:active{
+    text-decoration: line-through;
+    color: #060A24;
+    opacity: 56%;
+}
+/*inicio_menu-hamburguesa*/
 
 /*barra_busqueda_inicio*/
 .wrapper{
@@ -240,7 +266,26 @@ footer div a:hover{
 
 /*comienza responsive*/
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 730px) {
+    .boton-crear{
+        display: none;
+    }
+    .menu-desktop{
+        display: none;
+    }
+    .menu-mobile ul{
+        list-style-type: none;
+        width: 100%;
+        margin-left: -200%;
+        position: absolute;
+        transition: all 500ms ease;
+        font-family: 'IBM Plex Mono', monospace;
+    }
+    #btn-menu:checked ~ .menu-mobile ul{
+        transform: translateX(-3vw);
+        margin: 0;
+        z-index: 1;
+    }
     /*inicio_burger-menu_bars*/
     .lbl-menu{
         width: 30px;
@@ -248,7 +293,7 @@ footer div a:hover{
         position: relative;
         cursor: pointer;
         float: right;
-        margin-top: 4px;
+        margin-top: 25px;
     }
     .lbl-menu #spn1,#spn2,#spn3{
         position: absolute;
@@ -277,4 +322,13 @@ footer div a:hover{
         top: 10px;
     }
     /*fin_burger-menu_bars*/
+    .menu-mobile li{
+        width: 100vw;
+        height: 59px;
+        background-color: #572EE5;
+        color: #FFFFFF;
+        padding-left: 10px;
+        padding-top: 10px;
+        border: 0.5px solid #572EE5;
+    }
 }

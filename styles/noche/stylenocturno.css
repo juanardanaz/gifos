@@ -132,6 +132,7 @@ input[type="checkbox"] {
     font-size: 16px;
     /*box-shadow: 0px 1px 5px rgba(0,0,0,0.1);*/
     border: 1px solid #FFFFFF;
+    background-color: #37383C;
 }
 
 .search-input .icon-search{
@@ -299,8 +300,8 @@ footer div a:hover{
         transform: translateX(-3vw);
         margin: 0;
         z-index: 1;
-        background-color: #572EE5;
-        opacity: 90%;
+        background-color: #000000;
+        opacity: 100%;
         
     }
     /*burger-menu bars*/
@@ -318,7 +319,7 @@ footer div a:hover{
     .lbl-menu #spn1,#spn2,#spn3{
         position: absolute;
         content: "";
-        background-color: #572EE5;
+        background-color: #FFFFFF;
         width: 20px;
         height: 3px;
         border-radius: 40px;

@@ -355,8 +355,16 @@ footer div a:hover{
 }
 
 @media screen and (max-width: 630px) {
+    .lbl-menu{
+        position: relative;
+        right: -70px;
+        top: -5px;
+    }
     .logo-gifos{
         width: 25%;
+        padding-bottom: 20px;
+        position: relative;
+        right: 28px;
     }
     .seccion-primera h1{
         font-size: 25px;
@@ -364,7 +372,7 @@ footer div a:hover{
     .seccion-primera .wrapper .ilustracion{
         width: 60%;
         position: relative;
-        left: 51px;
+        left: 55px;
     }
     .seccion-primera h3{
         font-size: 16px;
@@ -374,6 +382,7 @@ footer div a:hover{
     }
     .search-input input{
         width: 109%;
+        height: 45px;
     }
     .wrapper .search-input{
         position: relative;
@@ -383,12 +392,13 @@ footer div a:hover{
     .search-input .icon-search{
         position: absolute;
         right: 0px;
+        top: 12px;
     }
     .row h2{
-        font-size: 20px;
+        font-size: 17px;
     }
     .row p{
-        font-size: 16px;
+        font-size: 17px;
     }
     .footer{
         display: flex;

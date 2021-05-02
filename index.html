@@ -7,20 +7,25 @@
     <title>GIFOS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
-    
 </head>
 <body>
     <header>
         <div class="barra-superior"></div>
         <div class="header">
             <img src="./img/logo-desktop.svg" alt="logo-gifos">
-            <nav>
+            <nav class="menu-desktop">
                 <ul>
                     <li>Modo Nocturno</li>
                     <li>Favoritos</li>
                     <li>Mis Gifos</li>
                 </ul>
             </nav>
+            <input type="checkbox" id="btn-menu">
+            <label for="btn-menu" class="lbl-menu">
+                <span id="spn1"></span>
+                <span id="spn2"></span>
+                <span id="spn3"></span>
+            </label>
             <img src="./img/button-crear-gifo.svg" alt="boton-crear" class="boton-crear">
         </div>
     </header>

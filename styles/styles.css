@@ -188,7 +188,6 @@ input[type="checkbox"] {
 .autocom-box li:hover{
     background-color: #efefef;
 }
-
 /*fin_barra_busqueda*/
 
 h1{
@@ -274,12 +273,12 @@ footer p{
     font-weight: 400;
 }
 
-footer div a{
+footer div a img{
     color: #CDD6E0;
     padding-left: 15px;
 }
 
-footer div a:hover{
+footer div a img:hover{
     color: #572EE5;
 }
 
@@ -289,7 +288,6 @@ footer div a:hover{
 }
 
 /*comienza responsive*/
-
 @media screen and (max-width: 730px) {
     .boton-crear{
         display: none;

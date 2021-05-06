@@ -264,6 +264,7 @@ div p{
 
 .footer .redes-sociales{
     display: flex;
+    align-items: center;
 }
 
 footer p{
@@ -271,6 +272,7 @@ footer p{
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: 400;
+    
 }
 
 footer div a img{

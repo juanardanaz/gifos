@@ -262,6 +262,11 @@ div p{
     padding-top: 15px;
 }
 
+.footer .container-redes{
+    display: flex;
+    align-items: center;
+}
+
 .footer .redes-sociales{
     display: flex;
     align-items: center;
@@ -426,5 +431,12 @@ footer div a img:hover{
     }
     .footer .redes-sociales a{
         display: inline-block;
+    }
+    .footer .container-redes{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer{
+        text-align: center;
     }
 }

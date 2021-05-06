@@ -51,7 +51,12 @@ header{
     justify-content: space-between;
 }
 
-header nav ul li{
+header nav ul li a{
+    text-decoration: none;
+    color: #572EE5;
+}
+
+header nav ul li {
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
@@ -62,12 +67,12 @@ header nav ul li{
     margin-right: 40px;
 }
 
-header nav ul li:hover{
+header nav ul li a:hover{
     text-decoration: underline;
     text-decoration-color: #5ED7C6;
 }
 
-header nav ul li:active{
+header nav ul li a:active{
     color: #9CAFC3 ;
 }
 

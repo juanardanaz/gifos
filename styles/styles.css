@@ -429,8 +429,13 @@ footer div a img:hover{
         flex-direction: column;
         align-items: center;
     }
+    .footer .redes-sociales{
+        position: relative;
+        right: 10px;
+    }
     .footer .redes-sociales a{
         display: inline-block;
+        padding-bottom: 10px;
     }
     .footer .container-redes{
         display: flex;
@@ -438,5 +443,8 @@ footer div a img:hover{
     }
     .footer{
         text-align: center;
+    }
+    .footer p{
+        padding-bottom: 10px;
     }
 }

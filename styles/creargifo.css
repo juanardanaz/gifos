@@ -122,6 +122,45 @@ input[type="checkbox"] {
 }
 /*fin_menu-hamburguesa*/
 
+.crear-gifo{
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 80px;
+    padding-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-pantalla{
+    border: 1px solid #572EE5;
+    width: 688px;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+h1{
+    color: #572EE5;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 .gifos-proyector{
+    color: #5ED7C6;
+    text-transform: uppercase;
+}
+
+.container-pantalla p{
+    font-family: 'Roboto';
+    font-size: 16px;
+    text-align: center;
+}
+
 .footer{
     display: flex;
     justify-content: space-between;

@@ -1,0 +1,355 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #FFFFFF;
+}
+
+.barra-superior{
+    width: 100%;
+    border-bottom: 5px solid #572EE5;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    z-index: 1;
+    /*box-shadow: 0 4px 2px -2px rgba(0,0,0,.2)*/
+}
+
+.header{
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 29px;
+    padding-left: 43px;
+    padding-right: 43px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: #572EE5;
+}
+
+header nav ul li {
+    color: #572EE5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 40px;
+}
+
+header nav ul li a:hover{
+    text-decoration: underline;
+    text-decoration-color: #5ED7C6;
+}
+
+header nav ul li a:active{
+    color: #9CAFC3 ;
+}
+
+header nav ul{
+    position: absolute;
+    right: 120px;
+    top: 54px;
+}
+
+header .boton-crear:hover{
+    background-color: #572EE5;
+    color: #FFFFFF;
+}
+
+/*inicio_menu-hamburguesa*/
+#btn-menu{
+    display: none;
+}
+.menu-mobile{
+    display: none;
+}
+
+.menu-mobile li a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.menu-mobile li a:visited{
+    color: #FFFFFF;
+}
+
+.menu-mobile li a:hover{
+    color: #00F3BB; 
+    text-decoration: underline;
+}
+
+.menu-mobile li a:active{
+    text-decoration: underline;
+    color: #9CAFC3;
+    opacity: 56%;
+}
+
+.menu-mobile{
+    display: none;
+    margin-left: -48px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+/*fin_menu-hamburguesa*/
+
+h1{
+    color: #572EE5;
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+.seccion-gifs{
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 80px;
+    padding-top: 60px;
+    margin-bottom: 60px;
+}
+
+.row{
+    background-color: #F3F5F8;
+    width: 100%;
+    height: 640px;
+    padding-top: 60px;
+}
+
+div h2{
+    color: #572EE5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+div p{
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-top: 29px;
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.footer .container-redes{
+    display: flex;
+    align-items: center;
+}
+
+.footer .redes-sociales{
+    display: flex;
+    align-items: center;
+}
+
+footer p{
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+footer div a img{
+    padding-left: 15px;
+}
+
+.barra-inferior{
+    width: 100%;
+    border-bottom: 5px solid #572EE5;
+}
+
+/*comienza responsive*/
+@media screen and (max-width: 730px) {
+    .boton-crear{
+        display: none;
+    }
+    .menu-mobile{
+        display: block;
+    }
+    .menu-desktop{
+        display: none;
+    }
+    .menu-mobile ul{
+        list-style-type: none;
+        width: 100%;
+        height: 760%;
+        margin-left: -200%;
+        position: absolute;
+        transition: all 500ms ease;
+        font-family: 'IBM Plex Mono', monospace;
+        left: 10px;
+        top: 100px;
+    }
+    #btn-menu:checked ~ .menu-mobile ul{
+        transform: translateX(-3vw);
+        margin: 0;
+        z-index: 1;
+        background-color: #572EE5;
+        opacity: 90%;
+    }
+    
+    /*burger-menu bars*/
+    .lbl-menu{
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        float: right;
+        margin-top: 4px;
+        top: 20px;
+        right: 20px;
+    }
+
+    .lbl-menu #spn1,#spn2,#spn3{
+        position: absolute;
+        content: "";
+        background-color: #572EE5;
+        width: 20px;
+        height: 3px;
+        border-radius: 40px;
+        transition: all 400ms ease;
+    }
+    #spn2{
+        top: 7px;
+    }
+    #spn3{
+        top: 14px;
+    }
+    #btn-menu:checked ~ .lbl-menu #spn1{
+        transform: rotate(140deg);
+        top: 10px;
+    }
+    #btn-menu:checked ~ .lbl-menu #spn2{
+        opacity: 0;
+    }
+    #btn-menu:checked ~ .lbl-menu #spn3{
+        transform: rotate(-140deg);
+        top: 10px;
+        background-color: #572EE5;
+    }
+    /**/
+    .menu-mobile li{
+        width: 100vw;
+        height: 59px;
+        /*background-color: #572EE5;*/
+        color: #FFFFFF;
+        padding-left: 10px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 630px) {
+    .lbl-menu{
+        position: relative;
+        right: -70px;
+        top: 12px;
+    }
+    .logo-gifos{
+        width: 70%;
+        padding-bottom: 20px;
+        position: relative;
+        right: 28px;
+    }
+    .seccion-gifs h1{
+        font-size: 25px;
+    }
+    .seccion-gifs .wrapper .ilustracion{
+        width: 60%;
+        position: relative;
+        left: 55px;
+    }
+    .seccion-gifs h3{
+        font-size: 16px;
+    }
+    .seccion-gifs .trending{
+        font-size: 14px;
+    }
+    .search-input input{
+        width: 109%;
+        height: 45px;
+    }
+    .wrapper .search-input{
+        position: relative;
+        right: -6px;
+        width: 85%;
+    }
+    .search-input .icon-search{
+        position: absolute;
+        right: 0px;
+        top: 12px;
+    }
+    .row h2{
+        font-size: 17px;
+    }
+    .row p{
+        font-size: 17px;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer .redes-sociales{
+        position: relative;
+        right: 10px;
+    }
+    .footer .redes-sociales a{
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+    .footer .container-redes{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer{
+        text-align: center;
+    }
+    .footer p{
+        padding-bottom: 10px;
+    }
+}

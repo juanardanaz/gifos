@@ -1,6 +1,6 @@
 window.onload = () => {
-    const bdark = document.getElementById("bdark");
-    const body = document.querySelector("body");
+    let bdark = document.getElementById("bdark");
+    let body = document.querySelector("body");
 
     load();
 
@@ -10,7 +10,7 @@ window.onload = () => {
     });
 
     function load(){
-        const darkmode = localStorage.getItem("darkmode");
+        let darkmode = localStorage.getItem("darkmode");
 
         if (!darkmode){
             store("false");

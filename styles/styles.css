@@ -279,16 +279,10 @@ footer p{
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
     font-weight: 400;
-    
 }
 
 footer div a img{
-    color: #CDD6E0;
     padding-left: 15px;
-}
-
-footer div a img:hover{
-    color: #572EE5;
 }
 
 .barra-inferior{

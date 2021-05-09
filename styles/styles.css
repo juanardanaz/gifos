@@ -285,8 +285,6 @@ footer div a img{
     padding-left: 15px;
 }
 
-
-
 .barra-inferior{
     width: 100%;
     border-bottom: 5px solid #572EE5;
@@ -320,8 +318,8 @@ footer div a img{
         z-index: 1;
         background-color: #572EE5;
         opacity: 90%;
-        
     }
+    
     /*burger-menu bars*/
     .lbl-menu{
         width: 30px;
@@ -359,6 +357,7 @@ footer div a img{
     #btn-menu:checked ~ .lbl-menu #spn3{
         transform: rotate(-140deg);
         top: 10px;
+        background-color: #572EE5;
     }
     /**/
     .menu-mobile li{
@@ -620,6 +619,7 @@ footer div a img{
     .darkmode #btn-menu:checked ~ .lbl-menu #spn3{
         transform: rotate(-140deg);
         top: 10px;
+        background-color: #FFFFFF;
     }
     /**/
     .darkmode .menu-mobile li{

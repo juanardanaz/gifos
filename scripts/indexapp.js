@@ -1,4 +1,5 @@
 window.onload = () => {
+    //Modo Nocturno
     let bdark = document.getElementById("bdark");
     let body = document.querySelector("body");
 
@@ -11,7 +12,6 @@ window.onload = () => {
 
     function load(){
         let darkmode = localStorage.getItem("darkmode");
-
         if (!darkmode){
             store("false");
         }else if(darkmode == "true"){
@@ -22,6 +22,9 @@ window.onload = () => {
     function store(value){
         localStorage.setItem("darkmode", value)
     }
+
+    //Barra-de-busqueda
+
 
 }
 

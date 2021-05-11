@@ -290,6 +290,7 @@ footer div a img{
     border-bottom: 5px solid #572EE5;
 }
 
+
 /*comienza responsive*/
 @media screen and (max-width: 730px) {
     .boton-crear{

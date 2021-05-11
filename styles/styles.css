@@ -602,7 +602,7 @@ footer div a img{
         right: 20px;
     }
 
-    .darkmode .lbl-menu #spn1,#spn2,#spn3{
+    .darkmode .lbl-menu #spn1{
         position: absolute;
         content: "";
         background-color: #FFFFFF;
@@ -611,9 +611,30 @@ footer div a img{
         border-radius: 40px;
         transition: all 400ms ease;
     }
+    .darkmode .lbl-menu #spn2{
+        position: absolute;
+        content: "";
+        background-color: #FFFFFF;
+        width: 20px;
+        height: 3px;
+        border-radius: 40px;
+        transition: all 400ms ease;
+    }
+
+    .darkmode .lbl-menu #spn3{
+        position: absolute;
+        content: "";
+        background-color: #FFFFFF;
+        width: 20px;
+        height: 3px;
+        border-radius: 40px;
+        transition: all 400ms ease;
+    }
+
     .darkmode #btn-menu:checked ~ .lbl-menu #spn1{
         transform: rotate(140deg);
         top: 10px;
+        background-color: #FFFFFF;
     }
     .darkmode #btn-menu:checked ~ .lbl-menu #spn2{
         opacity: 0;

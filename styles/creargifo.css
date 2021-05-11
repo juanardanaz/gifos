@@ -146,9 +146,54 @@ input[type="checkbox"] {
     flex-wrap: wrap;
 }
 
-.container-esquinas{
-    border-top-left-radius: 1px solid #50E3C2;
+.container-esquinas {
+    position:relative;
+    width: 660px;
+    height: 365px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    }
+
+/*comienzo_bordes-esquinas*/
+.container-esquinas:before, 
+.container-esquinas:after, 
+.container-esquinas>:last-child:before, 
+.container-esquinas>:last-child:after {
+    position: absolute;
+    width: 30px; 
+    height: 30px;
+    border-color: #50E3C2; 
+    border-style: solid;
+    content: ' ';
 }
+
+.container-esquinas:before {
+    top: 5px;
+    left: 5px;
+    border-width: 1px 0 0 1px
+}
+
+.container-esquinas:after {
+    top: 5px;
+    right: 5px;
+    border-width: 1px 1px 0 0
+}
+
+.container-esquinas>:last-child:before {
+    bottom: 5px;
+    right: 5px;     
+    border-width: 0 1px 1px 0
+}
+
+.container-esquinas>:last-child:after {
+    bottom: 5px;
+    left: 5px;
+    border-width: 0 0 1px 1px
+}
+/*fin_bordes-esquinas*/
 
 .barra-pelicula{
     border: 1px solid #572EE5;

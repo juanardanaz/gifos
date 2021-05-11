@@ -463,6 +463,7 @@ footer div a img{
 .darkmode header nav ul li a:hover{
     color: #FFFFFF; 
     text-decoration: underline;
+    text-decoration-color: #00F3BB;;
 }
 
 .darkmode header nav ul li{

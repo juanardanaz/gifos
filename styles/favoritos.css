@@ -199,8 +199,13 @@ footer p{
     font-weight: 400;
 }
 
-footer div a img{
+footer div a{
     padding-left: 15px;
+    color: #9CAFC3;
+}
+
+footer div a:hover{
+    color: #572EE5;
 }
 
 .barra-inferior{

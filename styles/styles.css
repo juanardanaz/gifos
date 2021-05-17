@@ -281,13 +281,21 @@ footer p{
     font-weight: 400;
 }
 
-footer div a{
+footer .redes-icon{
     padding-left: 15px;
     color: #9CAFC3;
 }
 
-footer div a:hover{
-    color: #572EE5;
+footer .redes-icon .icon-hover{
+    display: none;
+}
+
+footer .redes-icon:hover .icon{
+    display: none;
+}
+
+footer .redes-icon:hover .icon-hover{
+    display: inline-block;
 }
 
 .barra-inferior{

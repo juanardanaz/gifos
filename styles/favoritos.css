@@ -79,9 +79,28 @@ header nav ul{
     top: 54px;
 }
 
-header .boton-crear:hover{
-    background-color: #572EE5;
-    color: #FFFFFF;
+header .menu-creargifo .boton-crear-blanco {
+    display: none;
+}
+
+header .menu-creargifo .boton-crear-gris {
+    display: none;
+}
+
+header .menu-creargifo:hover .boton-crear-violeta {
+    display: none;
+}
+
+header .menu-creargifo:hover .boton-crear-blanco {
+    display: block;
+}
+
+header .menu-creargifo:active .boton-crear-gris {
+    display: inline-block;
+}
+
+header .menu-creargifo:active .boton-crear-blanco {
+    display: none;
 }
 
 /*inicio_menu-hamburguesa*/
@@ -223,7 +242,7 @@ footer .redes-icon:hover .icon-hover{
 
 /*comienza responsive*/
 @media screen and (max-width: 730px) {
-    .boton-crear{
+    .menu-creargifo{
         display: none;
     }
     .menu-mobile{

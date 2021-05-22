@@ -255,6 +255,40 @@ h3{
     padding-top: 60px;
 }
 
+.container-trending{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 130px;
+}
+
+.container-trending .boton-previo .boton-previo-hover {
+    display: none;
+}
+
+.container-trending .boton-previo:hover .boton-previo-normal {
+    display: none;
+}
+
+.container-trending .boton-previo:hover .boton-previo-hover {
+    display: inline-block;
+}
+
+
+.container-trending .boton-siguiente .boton-siguiente-hover {
+    display: none;
+}
+
+.container-trending .boton-siguiente:hover .boton-siguiente-normal {
+    display: none;
+}
+
+.container-trending .boton-siguiente:hover .boton-siguiente-hover{
+    display: inline-block;
+}
+
+
 div h2{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;

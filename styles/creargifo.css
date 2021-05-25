@@ -156,6 +156,11 @@ input[type="checkbox"] {
     display: flex;
 }
 
+.container-camara .luz-camara{
+    position: relative;
+    top: 3px;
+}
+
 .container-pantalla{
     border: 1px solid #572EE5;
     width: 688px;
@@ -164,6 +169,8 @@ input[type="checkbox"] {
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    position: relative;
+    left: -20px;
 }
 
 .container-esquinas {
@@ -258,11 +265,20 @@ input[type="checkbox"] {
     justify-content: center;
 }
 
+.boton-comenzar:hover{
+    background-color: #572EE5;
+}
+
 .boton-comenzar label{
     font-family: 'Montserrat';
     text-align: center;
     color: #572EE5;
     font-size: 13px;
+    z-index: 1;
+}
+
+.boton-comenzar label:hover{
+    color: #FFFFFF;
 }
 
 h1{
@@ -376,7 +392,7 @@ footer .redes-icon:hover .icon-hover{
     z-index: 1;
 }
 
-.darkmode .search-input input{
+/*.darkmode .search-input input{
     height: 55px;
     width: 128%;
     outline: none;
@@ -386,6 +402,10 @@ footer .redes-icon:hover .icon-hover{
     font-size: 16px;
     border: 1px solid #FFFFFF;
     background-color: #37383C;
+}*/
+
+.darkmode .container-pantalla{
+    border: 1px solid #FFFFFF;
 }
 
 .darkmode h1{
@@ -399,12 +419,35 @@ footer .redes-icon:hover .icon-hover{
     text-align: center;
 }
 
+.darkmode .barra-pelicula{
+    border: 1px solid #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+.darkmode .container-numeros .numero{
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.darkmode .boton-comenzar{
+    border: 1px solid #FFFFFF;
+}
+
+.darkmode .boton-comenzar label{
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+.darkmode .boton-comenzar:hover{
+    background-color: #FFFFFF;
+}
+
+.darkmode .boton-comenzar label:hover{
+    color: #222326;
+}
+
 .darkmode .trending{
     color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    text-align: center;
 }
 
 .darkmode .row{

@@ -29,7 +29,7 @@
             </label>
             <div class="menu-mobile">
                 <ul>
-                    <li><a href="#">Modo Nocturno</a></li>
+                    <li><a href="#" >Modo Nocturno</a></li>
                     <li><a href="favoritos.html">Favoritos</a></li>
                     <li><a href="misgifos.html">Mis GIFOS</a></li>
                 </ul>
@@ -54,11 +54,26 @@
             <img src="./img/icon-fav-sin-contenido.svg" alt="favoritos sin contenido">
             <h3>¡Guardá tu primer GIFO en favoritos para que se muestre aquí!</h3>
         </section>
+        <section id="gifos-favoritos">
+            <div class="resultados-favoritos" id="resultados-favoritos"></div> 
+        </section>
         <section>
             <div class="row">
                 <h2>Trending GIFOS</h2>
                 <p>Mira los últimos GIFO de nuestra comunidad.</p>
-                <div class="gif"></div>
+                <div class="container-trending">
+                    <div class="boton-previo" id="slide-boton-previo">
+                        <img src="./img/button-slider-left.svg" alt="boton-previo" class="boton-previo-normal">
+                        <img src="./img/button-slider-left-hover.svg" alt="boton-previo" class="boton-previo-hover">
+                    </div>
+                    <div id="trendingView">
+                        <ul id="gifsList" class="gifsList"></ul>
+                    </div>
+                    <div class="boton-siguiente" id="slide-boton-siguiente">
+                        <img src="./img/Button-Slider-right.svg" alt="boton-siguiente" class="boton-siguiente-normal">
+                        <img src="./img/Button-Slider-right-hover.svg" alt="boton-siguiente" class="boton-siguiente-hover">
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -81,7 +96,7 @@
                     </a>
                 </div>
             </div>
-            <p>© GIFOS 2020 All Rights Reserved.</p>
+            <p>© GIFOS 2021 All Rights Reserved.</p>
         </div>
         <div class="barra-inferior"></div>
     </footer>

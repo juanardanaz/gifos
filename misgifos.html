@@ -54,11 +54,26 @@
             <img src="./img/icon-mis-gifos-sin-contenido.svg" alt="gifs sin contenido">
             <h3>¡Anímate a crear tu primer GIFO!</h3>
         </section>
+        <section id="misgifos-realizados">
+            <div class="resultados-misgifos" id="resultados-misgifos"></div>
+        </section>
         <section>
             <div class="row">
                 <h2>Trending GIFOS</h2>
                 <p>Mira los últimos GIFO de nuestra comunidad.</p>
-                <div class="gif"></div>
+                <div class="container-trending">
+                    <div class="boton-previo" id="slide-boton-previo">
+                        <img src="./img/button-slider-left.svg" alt="boton-previo" class="boton-previo-normal">
+                        <img src="./img/button-slider-left-hover.svg" alt="boton-previo" class="boton-previo-hover">
+                    </div>
+                    <div id="trendingView">
+                        <ul id="gifsList" class="gifsList"></ul>
+                    </div>
+                    <div class="boton-siguiente" id="slide-boton-siguiente">
+                        <img src="./img/Button-Slider-right.svg" alt="boton-siguiente" class="boton-siguiente-normal">
+                        <img src="./img/Button-Slider-right-hover.svg" alt="boton-siguiente" class="boton-siguiente-hover">
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -81,7 +96,7 @@
                     </a>
                 </div>
             </div>
-            <p>© GIFOS 2020 All Rights Reserved.</p>
+            <p>© GIFOS 2021 All Rights Reserved.</p>
         </div>
         <div class="barra-inferior"></div>
     </footer>

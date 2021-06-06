@@ -210,6 +210,33 @@ input[type="checkbox"] {
 .autocom-box li:hover{
     background-color: #efefef;
 }
+
+.listSuggestions{
+    list-style-type: none;
+    color: #9CAFC3;
+    position: relative;     
+    left: 20px;
+}
+
+#respuesta-busqueda-gifos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+#respuesta-busqueda-gifos .listItem{
+    list-style-type: none;
+}
+
+#respuesta-busqueda-gifos .listItem__image{
+    width: 357px;
+    height: 275px;
+    padding-right: 22px;
+    margin-bottom: 26px;
+}
+
+
 /*fin_barra_busqueda*/
 
 h1{
@@ -240,7 +267,15 @@ h3{
     text-align: center;
 }
 
-.trending{
+/* .trending{
+    color: #572EE5;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+} */
+
+.trendtext{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -261,6 +296,7 @@ h3{
     align-items: center;
     position: relative;
     top: 130px;
+    overflow: hidden;
 }
 
 .container-trending .boton-previo .boton-previo-hover {
@@ -275,7 +311,6 @@ h3{
     display: inline-block;
 }
 
-
 .container-trending .boton-siguiente .boton-siguiente-hover {
     display: none;
 }
@@ -288,6 +323,30 @@ h3{
     display: inline-block;
 }
 
+.container-trending .boton-previo{
+    cursor: pointer;
+}
+
+.container-trending .boton-siguiente{
+    cursor: pointer;
+}
+
+.container-trending .listItem {
+    width: 357px;
+    height: 275px;
+    padding-right: 22px;
+    margin-bottom: 26px;
+    list-style-type: none;
+}
+
+.container-trending .gifsList{
+    display: flex;
+}
+
+.container-trending .listItem .listItem__image{
+    width: 100%;
+    height: 100%;
+}
 
 div h2{
     color: #572EE5;

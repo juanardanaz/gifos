@@ -45,19 +45,28 @@
     </header>
     <main>
         <section class="seccion-primera">
-            <h1>Inspírate, busca, guarda, y crea los mejores <span class="gifos-text">GIFOS</span></h1>
+            <div class="first-title">
+                <h1>Inspírate, busca, guarda, y crea<br>
+                los mejores <span class="gifos-text">GIFOS</span></h1>
+            </div>
             <div class="wrapper">
                 <img src="./img/ilustra_header.svg" alt="ilustracion-gente" class="ilustracion">
                 <div class="search-input">
-                    <input type="text" placeholder="Busca GIFOS y más">
-                    <div class="autocom-box">
-                        <ul></ul>
+                    <input type="text" placeholder="Busca GIFOS y más" id="searchTerm">
+                    <div>
+                        <ul id="suggestions"></ul>
                     </div>
-                    <img src="./img/icon-search.svg" alt="icon-search-lupa" class="icon-search">
+                    <img src="./img/icon-search.svg" alt="icon-search-lupa" class="icon-search" id="search">
                 </div>
             </div>
-            <h3>Trending:</h3>
-            <p class="trending">Reactions, Entertainment, Sports, Stickers, Artists</p>
+            <div class="sugerencias-trending">
+                <h3>Trending:</h3>
+                <p class="trending" id="trending-text"></p>
+            </div>
+            <div id="respuesta-busqueda">
+                <h2 id="titulo-busqueda" class="titulo-busqueda"></h2>
+                <ul id="respuesta-busqueda-gifos"></ul>
+            </div>
         </section>
         <section>
             <div class="row">
@@ -68,8 +77,8 @@
                         <img src="./img/button-slider-left.svg" alt="boton-previo" class="boton-previo-normal">
                         <img src="./img/button-slider-left-hover.svg" alt="boton-previo" class="boton-previo-hover">
                     </div>
-                    <div class="trending-slide">
-                        <img src="./img/ilustra_header.svg" alt="">
+                    <div id="trendingView">
+                        <ul id="gifsList" class="gifsList"></ul>
                     </div>
                     <div class="boton-siguiente" id="slide-boton-siguiente">
                         <img src="./img/Button-Slider-right.svg" alt="boton-siguiente" class="boton-siguiente-normal">
@@ -98,9 +107,17 @@
                     </a>
                 </div>
             </div>
-            <p>© GIFOS 2020 All Rights Reserved.</p>
+            <p>© GIFOS 2021 All Rights Reserved.</p>
         </div>
         <div class="barra-inferior"></div>
     </footer>
 </body>
 </html>
+
+<!-- menu-mobile #ul-mobile span {
+    opacity: 0.5;
+    content: '';
+    background-color: white;
+    height: 1px;
+    display: block;
+    width: 41px; -->

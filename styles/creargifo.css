@@ -154,6 +154,13 @@ input[type="checkbox"] {
 
 .container-camara{
     display: flex;
+    position: relative;
+    left: 150px;
+}
+#pelicula{
+    position: relative;
+    top: 250px;
+    right: 200px;
 }
 
 .container-camara .luz-camara{

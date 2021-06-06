@@ -1,6 +1,6 @@
 window.onload = () => {
+    //MODO NOCTURNO
     //Cambio a Modo Nocturno General
-
     let bdark = document.getElementById("bdark");
     let modoNocturno = () => {
         let tema = localStorage.getItem("tema")
@@ -173,6 +173,101 @@ window.onload = () => {
             logoInstagramHover.setAttribute('src', './img/icon_instagram_noc.svg');
         }
     }
+
+    //Defino variables y capturo elementos GENERAL
+    let apiKey = 'eGTgEy8j7cI5AWF5SU1DcOTTbvsu0rLy'
+    let gifsList = document.getElementById('gifsList')
+    let newItem
+    let searchTerm = document.getElementById('searchTerm')
+    let search = document.getElementById('search')
+    let suggestions = document.getElementById('suggestions')
+    let rtaBusquedaGifos = document.getElementById('respuesta-busqueda-gifos')
+    let trendingTopicTexto = document.getElementById('trending-text')
+
+    //SECCION TRENDING GIFS (imagen)
+    async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
+        let response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=3&rating=g`)
+        response = await response.json()
+        renderTrendingGifs(response.data)
+    }
+
+    function renderTrendingGifs(trendingGifs) { //Aqui se pintan en pantalla los gifs trending topic del momento
+        gifsList.innerHTML = ''
+        for (let i = 0; i < trendingGifs.length; i++) {
+            newItem = document.createElement('li')
+            newItem.classList.add('listItem')
+            newItem.innerHTML = `<img src="${trendingGifs[i].images.original.url}" class="listItem__image" />`
+            gifsList.appendChild(newItem)
+        }
+    }
+
+    //SECCION TRENDING TOPIC (texto)
+    //Muestro los top 5 de trending topics en gifs
+    async function getTrendingText() { //Aqui van los gifs trending topic del momento
+        let response = await fetch(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`)
+        response = await response.json()
+        renderTrendingText(response.data)
+    }
+
+    function renderTrendingText(trendingText){
+        trendingTopicTexto.innerHTML= '';
+        for (let i = 0; i < trendingText.length; i++) {
+            let newText = document.createElement('p')
+            newText.classList.add('trendtext')
+            newText.innerHTML = `<span class="trending-topics-link">${trendingText[0]}</span>
+                                <span class="trending-topics-link">${trendingText[1]}</span>
+                                <span class="trending-topics-link">${trendingText[2]}</span>
+                                <span class="trending-topics-link">${trendingText[3]}</span>`
+            trendingTopicTexto.appendChild(newText)
+        }
+    }
+
+    getTrendingText()
+
+    //BARRA DE BUSQUEDA de Gifos
+    async function getSuggestions () { //Aqui van las sugerencias en la barra de busqueda, listado que se expande
+        let response = await fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${searchTerm.value}&limit=4&offset=5`)
+        response = await response.json()
+        renderSuggestions(response.data)
+    }
+
+    searchTerm.addEventListener('keypress', () => {
+        getSuggestions()
+    })
+
+    function renderSuggestions(suggestion) { //Aqui se pintan en pantalla las sugerencias en la barra de busqueda
+        suggestions.innerHTML = ''
+        for (let i = 0; i < suggestion.length; i++) {
+            let newItem = document.createElement('li')
+            newItem.classList.add('listSuggestions')
+            newItem.innerHTML = `<span><img src="./img/icon-search-mod-noc.svg" alt="icono-lupa">${suggestion[i].name}</span>`
+            suggestions.appendChild(newItem)
+
+            newItem.addEventListener('click', (e) => {
+                searchTerm.value = newItem.textContent
+                suggestions.innerHTML = ''
+                getSearchedGifs()
+            })
+        }
+    }
+
+    async function getSearchedGifs () { //Aqui se buscan los gifs en la barra de busqueda
+        let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm.value}&limit=12&offset=0&rating=g&lang=en`)
+        response = await response.json()
+        renderSearchedGifs(response.data)
+    }
+
+    function renderSearchedGifs(searchgGifs) { //Aqui se pintan en pantalla los resultados de la barra de busqueda
+        rtaBusquedaGifos.innerHTML = ''
+        for (let i = 0; i < searchgGifs.length; i++) {
+            newItem = document.createElement('li')
+            newItem.classList.add('listItem')
+            newItem.innerHTML = `<img src="${searchgGifs[i].images.original.url}" class="listItem__image" />`
+            rtaBusquedaGifos.appendChild(newItem)
+        }
+    }
+
+    getTrendingGifs()
 
 
 

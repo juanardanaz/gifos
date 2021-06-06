@@ -193,6 +193,64 @@ h1{
     padding-top: 60px;
 }
 
+.container-trending{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 130px;
+    overflow: hidden;
+}
+
+.container-trending .boton-previo .boton-previo-hover {
+    display: none;
+}
+
+.container-trending .boton-previo:hover .boton-previo-normal {
+    display: none;
+}
+
+.container-trending .boton-previo:hover .boton-previo-hover {
+    display: inline-block;
+}
+
+.container-trending .boton-siguiente .boton-siguiente-hover {
+    display: none;
+}
+
+.container-trending .boton-siguiente:hover .boton-siguiente-normal {
+    display: none;
+}
+
+.container-trending .boton-siguiente:hover .boton-siguiente-hover{
+    display: inline-block;
+}
+
+.container-trending .boton-previo{
+    cursor: pointer;
+}
+
+.container-trending .boton-siguiente{
+    cursor: pointer;
+}
+
+.container-trending .listItem {
+    width: 357px;
+    height: 275px;
+    padding-right: 22px;
+    margin-bottom: 26px;
+    list-style-type: none;
+}
+
+.container-trending .gifsList{
+    display: flex;
+}
+
+.container-trending .listItem .listItem__image{
+    width: 100%;
+    height: 100%;
+}
+
 div h2{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;

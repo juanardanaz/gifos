@@ -155,6 +155,30 @@ window.onload = () => {
         }
     }
 
+    //SECCION TRENDING GIFS (imagen)
+    //Defino variables y capturo elementos GENERAL
+    let apiKey = 'eGTgEy8j7cI5AWF5SU1DcOTTbvsu0rLy'
+    let gifsList = document.getElementById('gifsList')
+    let newItem
+
+    async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
+        let response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=3&rating=g`)
+        response = await response.json()
+        renderTrendingGifs(response.data)
+    }
+
+    function renderTrendingGifs(trendingGifs) { //Aqui se pintan en pantalla los gifs trending topic del momento
+        gifsList.innerHTML = ''
+        for (let i = 0; i < trendingGifs.length; i++) {
+            newItem = document.createElement('li')
+            newItem.classList.add('listItem')
+            newItem.innerHTML = `<img src="${trendingGifs[i].images.original.url}" class="listItem__image" />`
+            gifsList.appendChild(newItem)
+        }
+    }
+    getTrendingGifs()
+
+
 
 
 }

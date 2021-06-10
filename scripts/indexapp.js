@@ -186,7 +186,7 @@ window.onload = () => {
 
     //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
-        let response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=3&rating=g`)
+        let response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=12&rating=g`)
         response = await response.json()
         renderTrendingGifs(response.data)
     }
@@ -267,8 +267,50 @@ window.onload = () => {
         }
     }
 
-    getTrendingGifs()
+    getTrendingGifs();
 
+    //TRENDING SLIDER GIFS 
+    //Los trending gif que aparecen abajo se mueven de IZQ a DER segun la flecha seleccionada
+    let sliderTrendingGifos = document.getElementById('gifsList');
+    let imageGifo = 1;
+    let translateX = 0;
+
+    let trendingBotonPrev = document.getElementById('slide-boton-previo');
+    let trendingBotonNext = document.getElementById('slide-boton-siguiente');
+
+    trendingBotonNext.addEventListener('click', sliderNext);
+    function sliderNext() {
+        if (window.matchMedia("(min-width: 1440px)").matches) {
+            if (imageGifo <= 5) {
+                imageGifo++;
+                translateX -= 387;
+                sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
+            }
+        } else if (window.matchMedia("(min-width: 1024px)").matches) {
+            if (imageGifo <= 5) {
+                imageGifo++;
+                translateX -= 273;
+                sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
+            }
+        }
+    }
+
+    trendingBotonPrev.addEventListener('click', sliderPrev);
+    function sliderPrev() {
+        if (window.matchMedia("(min-width: 1440px)").matches) {
+            if (imageGifo !== 1) {
+                imageGifo--;
+                translateX += 387;
+                sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
+            }
+        } else if (window.matchMedia("(min-width: 1024px)").matches) {
+            if (imageGifo !== 1) {
+                imageGifo--;
+                translateX += 273;
+                sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
+            }
+        }
+    }
 
 
 }

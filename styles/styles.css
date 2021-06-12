@@ -553,6 +553,12 @@ footer .redes-icon:hover .icon-hover{
     .row p{
         font-size: 17px;
     }
+    .boton-previo{
+        display: none;
+    }
+    .boton-siguiente{
+        display: none;
+    }
     .footer{
         display: flex;
         flex-direction: column;

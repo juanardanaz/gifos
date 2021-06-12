@@ -449,11 +449,20 @@ footer .redes-icon:hover .icon-hover{
         right: 0px;
         top: 12px;
     }
+    #favoritos-vacio h3 {
+        width: 258px;
+    }
     .row h2{
         font-size: 17px;
     }
     .row p{
         font-size: 17px;
+    }
+    .boton-previo{
+        display: none;
+    }
+    .boton-siguiente{
+        display: none;
     }
     .footer{
         display: flex;

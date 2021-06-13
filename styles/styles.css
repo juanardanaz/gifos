@@ -140,6 +140,17 @@ header .menu-creargifo:active .boton-crear-blanco {
 input[type="checkbox"] {
     display: none;
 }
+
+.menu-mobile span{
+    opacity: 0.5;
+    content: '';
+    background-color: white;
+    height: 1px;
+    display: block;
+    width: 41px;
+    position: relative;
+    left: 143px;
+}
 /*fin_menu-hamburguesa*/
 
 /*barra_busqueda_inicio*/
@@ -438,7 +449,7 @@ footer .redes-icon:hover .icon-hover{
     .menu-mobile ul{
         list-style-type: none;
         width: 100%;
-        height: 760%;
+        height: 780%;
         margin-left: -200%;
         position: absolute;
         transition: all 500ms ease;
@@ -496,11 +507,10 @@ footer .redes-icon:hover .icon-hover{
     /**/
     .menu-mobile li{
         width: 100vw;
-        height: 59px;
-        /*background-color: #572EE5;*/
+        height: 60px;
         color: #FFFFFF;
         padding-left: 10px;
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 30px;
         text-align: center;
     }

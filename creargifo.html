@@ -7,6 +7,7 @@
     <title>GIFOS - Crear Gifo</title>
     <link rel="stylesheet" href="./styles/creargifo.css">
     <link rel="icon" href="./img/logo-mobile.svg">
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="./scripts/creargifo.js"></script>
 </head>
 <body>
@@ -29,9 +30,12 @@
             </label>
             <div class="menu-mobile">
                 <ul>
-                    <li><a href="#">Modo Nocturno</a></li>
+                    <li><a href="#" id="mobileDark">Modo Nocturno</a></li>
+                    <span></span>
                     <li><a href="favoritos.html">Favoritos</a></li>
+                    <span></span>
                     <li><a href="misgifos.html">Mis GIFOS</a></li>
+                    <span></span>
                 </ul>
             </div>
             <div class="menu-creargifo">
@@ -50,23 +54,54 @@
                 <img src="./img/element-luz-camara.svg" alt="luz-camara-proyector" class="luz-camara">
             </div>
             <div class="container-pantalla">
-                <div class="container-esquinas">
-                    <h1>Aquí podrás crear tus propios <span class="gifos-proyector">GIFOS</span></h1>
-                    <p>¡Crea tu GIFO en sólo 3 pasos! (sólo necesitas una cámara para grabar un video)</p>
+                <div class="container-frame">
+                    <div class="esquinas-frame">
+                        <div class="esquinaA"></div>
+                        <div class="esquinaB"></div>
+                        <div class="esquinaC"></div>
+                        <div class="esquinaD"></div>
+                    </div>
+                    <div class="container-video">
+                        <div class="container-video-texto">
+                            <h1 id="titulo-grabargifo">Aquí podrás <br> crear tus propios <span class="gifos-proyector">GIFOS</span></h1>
+                            <p id="texto-grabargifo">¡Crea tu GIFO en sólo 3 pasos!<br> (sólo necesitas una cámara para grabar un video)</p>
+                        </div>
+                        <div class="overlay-video" id="overlay-video">
+                            <div id="overlay-video-actions"></div>
+                            <div id="overlay-video-textos">
+                                <img src="./img/loader.svg" alt="gif cargando" id="overlay-video-icon">
+                                <p id="overlay-video-parrafo">Estamos subiendo tu GIFO</p>
+                            </div>
+                        </div>
+                        <video src="" id="grabacion-video"></video>
+                        <img src="" alt="" id="gif-grabado">
+                    </div>
                 </div>
             </div>
             <img src="./img/pelicula.svg" alt="icono-pelicula" id="pelicula">
         </section>
-        <section class="container-botones">
-            <div class="container-numeros">
-                <label for="number" class="numero">1</label>
-                <label for="number" class="numero">2</label>
-                <label for="number" class="numero">3</label>
+        <div class="container-botones">
+            <div class="crear-pasos">
+                <p id="creargifo-pasos-numero">1</p>
+                <p id="creargifo-pasos-numero">2</p>
+                <p id="creargifo-pasos-numero">3</p>
             </div>
             <div class="barra-pelicula"></div>
-            <div class="boton-comenzar">
-                <label for="text">COMENZAR</label>
-            </div>
+        </div>
+        <div class="contador-container">
+            <p id="contador-grabacion">0:00:00</p>
+            <button id="contador-repetircaptura">repetir captura</button>
+        </div>
+        
+        <div class="botones-creargifo-contenedor">
+            <button id="boton-creargifo-comenzar" class="boton-general">Comenzar</button>
+            <button id="boton-creargifo-grabar" class="boton-general">Grabar</button>
+            <button id="boton-creargifo-finalizar" class="boton-general">Finalizar</button>
+            <button id="boton-creargifo-subirgifo" class="boton-general">Subir gifo</button>
+        </div>
+        
+        <section class="aviso-cartel-mobile">
+            <h2>Para una mejor experiencia, visualiza esta página desde una computadora</h2>
         </section>
     </main>
     <footer>
@@ -92,5 +127,6 @@
         </div>
         <div class="barra-inferior"></div>
     </footer>
+    
 </body>
 </html>

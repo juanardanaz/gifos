@@ -17,6 +17,7 @@ window.onload = () => {
             cambioLogoInstagram();
             cambioSliderPrevio();
             cambioSliderSiguiente();
+            cambioCruzBusqueda();
         } else {
             localStorage.setItem('oscuro', 'false');
             bdark.innerHTML = "Modo Nocturno";
@@ -28,6 +29,7 @@ window.onload = () => {
             cambioLogoInstagram();
             cambioSliderPrevio();
             cambioSliderSiguiente();
+            cambioCruzBusqueda();
         }
     });
 
@@ -43,6 +45,7 @@ window.onload = () => {
         cambioLogoInstagram();
         cambioSliderPrevio();
         cambioSliderSiguiente();
+        cambioCruzBusqueda();
     } else {
         document.body.classList.remove("darkmode");
         bdark.innerHTML = "Modo Nocturno";
@@ -54,6 +57,7 @@ window.onload = () => {
         cambioLogoInstagram();
         cambioSliderPrevio();
         cambioSliderSiguiente();
+        cambioCruzBusqueda();
     };
 
     //MODO NOCTURNO MOBILE 
@@ -216,6 +220,16 @@ window.onload = () => {
         } else {
             logoInstagram.setAttribute('src', './img/icon_instagram.svg');
             logoInstagramHover.setAttribute('src', './img/icon_instagram_noc.svg');
+        }
+    }
+
+    //Cambio Cruz Barra Busqueda
+    function cambioCruzBusqueda(){
+    let cruzCierreBusqueda = document.getElementById('cierre busqueda');
+        if (bdark.innerHTML == "Modo Nocturno") {
+            cruzCierreBusqueda.setAttribute('src', './img/close.svg');
+        } else {
+            cruzCierreBusqueda.setAttribute('src', './img/close-modo-noct.svg');
         }
     }
 
@@ -457,10 +471,11 @@ window.onload = () => {
 
     getTrendingGifs();
 
-    //CLICK EN LUPA - BUSCADOR GIFOS
+    //ENTER EN BARRA BUSQUEDA
     search.addEventListener('click', getSearchedGifs);
-    searchTerm.addEventListener('keyup', function (e) {
-        if (e.keyCode === 13) {
+    searchTerm.addEventListener('keyup', function (event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
             getSearchedGifs();
         }
     });

@@ -1,5 +1,6 @@
 window.onload = () => {
-    //MODO NOCTURNO DESKTOP 
+    //MODO NOCTURNO
+    //MODO NOCTURNO DESKTOP
     const bdark = document.getElementById("bdark");
     bdark.addEventListener('click', () => {
         document.body.classList.toggle("darkmode");

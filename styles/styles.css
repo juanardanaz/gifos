@@ -716,15 +716,23 @@ footer .redes-icon:hover .icon-hover{
     z-index: 1;
 }
 
+.darkmode .wrapper .search-input {
+    position: relative;
+    right: 16px;
+    width: 100%;
+    top: -4px;
+    border-radius: 27px;
+    border: 1.5px solid #FFFFFF;
+}
+
 .darkmode .search-input input{
     height: 55px;
-    width: 128%;
+    width: 100%;
     outline: none;
     border: none;
     border-radius: 35px;
     padding: 0 60px 0 20px;
     font-size: 16px;
-    border: 1px solid #FFFFFF;
     background-color: #37383C;
 }
 
@@ -749,6 +757,12 @@ footer .redes-icon:hover .icon-hover{
     font-weight: 400;
     font-size: 16px;
     text-align: center;
+}
+
+.darkmode .palabraTrend{
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
 }
 
 .darkmode .row{

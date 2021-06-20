@@ -57,18 +57,24 @@
                 <div class="search-input">
                     <input type="text" placeholder="Busca GIFOS y más" id="searchTerm">
                     <div>
+                        <div class="barra-divisoria" id="barra-divisoria"></div>
                         <ul id="suggestions"></ul>
                     </div>
-                    <img src="./img/icon-search.svg" alt="icon-search-lupa" class="icon-search" id="search">
+                    <div class="button">
+                        <img src="./img/icon-search.svg" alt="icon-search-lupa" class="icon-search" id="search">
+                        <img src="./img/close.svg" alt="icono cierre" class="cierre-busqueda" id="cierre busqueda">
+                    </div>
                 </div>
             </div>
             <div class="sugerencias-trending">
                 <h3>Trending:</h3>
-                <p class="trending" id="trending-text"></p>
+                <div class="trending" id="trending-text"></div>
             </div>
             <div id="respuesta-busqueda">
+                <div class="barra-divisoria-gifos" id="barra-divisoria-gifos"></div>
                 <h2 id="titulo-busqueda" class="titulo-busqueda"></h2>
                 <ul id="respuesta-busqueda-gifos"></ul>
+                <button id="boton-vermas" class="boton-vermas">VER MÁS</button>
             </div>
         </section>
         <section>
@@ -85,9 +91,6 @@
                             <div id="gifsList" class="gifsList"></div>
                         </div>
                     </div>
-                    <!-- <div id="trendingView">
-                        <ul id="gifsList" class="gifsList"></ul>
-                    </div> -->
                     <div class="boton-siguiente" id="slide-boton-siguiente">
                         <img src="./img/Button-Slider-right.svg" alt="boton-siguiente" class="boton-siguiente-normal">
                         <img src="./img/Button-Slider-right-hover.svg" alt="boton-siguiente" class="boton-siguiente-hover">

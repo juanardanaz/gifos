@@ -335,6 +335,11 @@ window.onload = () => {
     let suggestions = document.getElementById('suggestions')
     let rtaBusquedaGifos = document.getElementById('respuesta-busqueda-gifos')
     let trendingTopicTexto = document.getElementById('trending-text')
+    let cruzCierreBusqueda = document.getElementById('cierre busqueda')
+    let botonVerMas = document.getElementById('boton-vermas')
+    let tituloBusqueda = document.getElementById('titulo-busqueda')
+    let barraDivisoriaBusqueda = document.getElementById('barra-divisoria') 
+    let barraDivisoriaGifos = document.getElementById('barra-divisoria-gifos')
 
     //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
@@ -346,7 +351,7 @@ window.onload = () => {
     function renderTrendingGifs(trendingGifs) { //Aqui se pintan en pantalla los gifs trending topic del momento
         gifsList.innerHTML = ''
         for (let i = 0; i < trendingGifs.length; i++) {
-            newItem = document.createElement('li')
+            newItem = document.createElement('div')
             newItem.classList.add('listItem')
             newItem.innerHTML = `<img src="${trendingGifs[i].images.original.url}" class="listItem__image" />`
             gifsList.appendChild(newItem)
@@ -355,26 +360,48 @@ window.onload = () => {
 
     //SECCION TRENDING TOPIC (texto)
     //Muestro los top 5 de trending topics en gifs
-    async function getTrendingText() { //Aqui van los gifs trending topic del momento
-        let response = await fetch(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`)
-        response = await response.json()
-        renderTrendingText(response.data)
+    // async function getTrendingText() { //Aqui van los gifs trending topic del momento
+    //     let response = await fetch(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`)
+    //     response = await response.json()
+    //     renderTrendingText(response.data)
+    // }
+
+    // function renderTrendingText(trendingText){
+    //     trendingTopicTexto.innerHTML= '';
+    //     for (let i = 0; i < trendingText.length; i++) {
+    //         let newText = document.createElement('p')
+    //         newText.classList.add('trendtext')
+    //         newText.innerHTML = `<span class="trending-topics-link">${trendingText[0]}</span>
+    //                             <span class="trending-topics-link">${trendingText[1]}</span>
+    //                             <span class="trending-topics-link">${trendingText[2]}</span>
+    //                             <span class="trending-topics-link">${trendingText[3]}</span>
+    //                             <span class="trending-topics-link">${trendingText[4]}</span>`
+    //         trendingTopicTexto.appendChild(newText)
+    //     }
+    // }
+
+    // getTrendingText();
+
+    function palabrasTrending() {
+        let url = `https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`;
+        fetch(url)
+            .then(r => r.json())
+            .then((response) => {
+                // let trendingTopicTexto = document.getElementById('trending-text')
+                for (i = 0; i < 5; i++) {
+                    let linkTrending = document.createElement('div');
+                    let trending = `<div class="palabraTrend" onclick="buscarPalabra('${response.data[i]}')">${response.data[i]}</div>`;
+                    linkTrending.innerHTML = trending;
+                    trendingTopicTexto.appendChild(linkTrending);
+                }
+            })
+    };
+    palabrasTrending();
+
+    function buscarPalabra(value) {
+        getSearchedGifs(value);
     }
 
-    function renderTrendingText(trendingText){
-        trendingTopicTexto.innerHTML= '';
-        for (let i = 0; i < trendingText.length; i++) {
-            let newText = document.createElement('p')
-            newText.classList.add('trendtext')
-            newText.innerHTML = `<span class="trending-topics-link">${trendingText[0]}</span>
-                                <span class="trending-topics-link">${trendingText[1]}</span>
-                                <span class="trending-topics-link">${trendingText[2]}</span>
-                                <span class="trending-topics-link">${trendingText[3]}</span>`
-            trendingTopicTexto.appendChild(newText)
-        }
-    }
-
-    getTrendingText()
 
     //BARRA DE BUSQUEDA de Gifos
     async function getSuggestions () { //Aqui van las sugerencias en la barra de busqueda, listado que se expande
@@ -387,17 +414,23 @@ window.onload = () => {
         getSuggestions()
     })
 
-    function renderSuggestions(suggestion) { //Aqui se pintan en pantalla las sugerencias en la barra de busqueda
+    function renderSuggestions(suggestion) { //Aqui se pintan en pantalla el listado de las sugerencias en la barra de busqueda
         suggestions.innerHTML = ''
         for (let i = 0; i < suggestion.length; i++) {
             let newItem = document.createElement('li')
             newItem.classList.add('listSuggestions')
             newItem.innerHTML = `<span><img src="./img/icon-search-mod-noc.svg" alt="icono-lupa">${suggestion[i].name}</span>`
+            search.style.display = "none";
+            cruzCierreBusqueda.style.display = "block";
+            barraDivisoriaBusqueda.style.display = "block"
             suggestions.appendChild(newItem)
 
             newItem.addEventListener('click', (e) => {
                 searchTerm.value = newItem.textContent
                 suggestions.innerHTML = ''
+                search.style.display = "block";
+                cruzCierreBusqueda.style.display = "none";
+                barraDivisoriaBusqueda.style.display = "none";
                 getSearchedGifs()
             })
         }
@@ -412,19 +445,40 @@ window.onload = () => {
     function renderSearchedGifs(searchgGifs) { //Aqui se pintan en pantalla los resultados de la barra de busqueda
         rtaBusquedaGifos.innerHTML = ''
         for (let i = 0; i < searchgGifs.length; i++) {
-            newItem = document.createElement('li')
-            newItem.classList.add('listItem')
-            newItem.innerHTML = `<img src="${searchgGifs[i].images.original.url}" class="listItem__image" />`
-            rtaBusquedaGifos.appendChild(newItem)
+            newItem = document.createElement('li');
+            newItem.classList.add('listItem');
+            newItem.innerHTML = `<img src="${searchgGifs[i].images.original.url}" class="listItem__image"/>`;
+            tituloBusqueda.innerHTML = searchTerm.value;
+            barraDivisoriaGifos.style.display = "block";
+            botonVerMas.style.display = "block";
+            rtaBusquedaGifos.appendChild(newItem);
         }
     }
 
     getTrendingGifs();
 
+
+    //VER MAS RESULTADOS
+    // let botonVerMas = document.getElementById('boton-vermas');
+    // botonVerMas.addEventListener('click', verMasResultados);
+    // function verMasResultados(){
+    //     searchTerm.value = searchTerm.value + 12;
+    //     getSearchedGifs();
+    // }
+
+    //LIMPIAR BUSQUEDA BARRA GIFOS
+    // cruzCierreBusqueda.addEventListener('click', borrarBusqueda);
+    // function borrarBusqueda() {
+    //     searchTerm.value = "";
+    //     searchTerm.placeholder = "Busca GIFOS y más";
+    //     search.style.display = "block";
+    //     cruzCierreBusqueda.style.display = "none";
+    // }
+
     //TRENDING SLIDER GIFS 
     //Los trending gif que aparecen abajo se mueven de IZQ a DER segun la flecha seleccionada
     let sliderTrendingGifos = document.getElementById('gifsList');
-    let imageGifo = 1;
+    let imagenPlacaGifo = 1;
     let translateX = 0;
 
     let trendingBotonPrev = document.getElementById('slide-boton-previo');
@@ -433,14 +487,14 @@ window.onload = () => {
     trendingBotonNext.addEventListener('click', sliderNext);
     function sliderNext() {
         if (window.matchMedia("(min-width: 1440px)").matches) {
-            if (imageGifo <= 5) {
-                imageGifo++;
+            if (imagenPlacaGifo <= 8) {
+                imagenPlacaGifo++;
                 translateX -= 387;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
         } else if (window.matchMedia("(min-width: 1024px)").matches) {
-            if (imageGifo <= 5) {
-                imageGifo++;
+            if (imagenPlacaGifo <= 8) {
+                imagenPlacaGifo++;
                 translateX -= 273;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
@@ -450,20 +504,18 @@ window.onload = () => {
     trendingBotonPrev.addEventListener('click', sliderPrev);
     function sliderPrev() {
         if (window.matchMedia("(min-width: 1440px)").matches) {
-            if (imageGifo !== 1) {
-                imageGifo--;
+            if (imagenPlacaGifo !== 1) {
+                imagenPlacaGifo--;
                 translateX += 387;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
         } else if (window.matchMedia("(min-width: 1024px)").matches) {
-            if (imageGifo !== 1) {
-                imageGifo--;
+            if (imagenPlacaGifo !== 1) {
+                imagenPlacaGifo--;
                 translateX += 273;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
         }
     }
-
-
 }
 

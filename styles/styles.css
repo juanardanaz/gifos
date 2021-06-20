@@ -14,6 +14,7 @@
     font-display: swap;
 }
 
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -162,33 +163,46 @@ input[type="checkbox"] {
     margin-right: auto;
 }
 
+.wrapper .ilustracion{
+    width: 80%;
+    position: relative;
+    left: 35px;
+}
+
 .wrapper .search-input{
     position: relative;
-    right: 70px;
+    right: 16px;
     width: 100%;
     top: -4px;
-    border-radius: 5px;
-    /*box-shadow: 0px 1px 5px 3px #000000;*/
+    border-radius: 27px;
+    border: 1.5px solid #572EE5;
 }
 
 .search-input input{
     height: 55px;
-    width: 128%;
+    width: 100%;
     outline: none;
     border: none;
     border-radius: 35px;
     padding: 0 60px 0 20px;
     font-size: 16px;
-    /*box-shadow: 0px 1px 5px rgba(0,0,0,0.1);*/
-    border: 1px solid #572EE5;
 }
 
 .search-input .icon-search{
     position: absolute;
     top: 18px;
-    right: -93px;
+    right: 28px;
     text-align: center;
     cursor: pointer;
+}
+
+.search-input .cierre-busqueda{
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    text-align: center;
+    cursor: pointer;
+    display: none;
 }
 
 .search-input .autocom-box{
@@ -218,15 +232,21 @@ input[type="checkbox"] {
     display: block;
 }
 
-.autocom-box li:hover{
-    background-color: #efefef;
+.barra-divisoria{
+    border: 1px solid #9CAFC3;
+    width: 90%;
+    margin-left: 20px;
+    display: none;
 }
 
 .listSuggestions{
     list-style-type: none;
-    color: #9CAFC3;
+    color: #000000;
     position: relative;     
     left: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 #respuesta-busqueda-gifos {
@@ -247,7 +267,17 @@ input[type="checkbox"] {
     margin-bottom: 26px;
 }
 
-
+#barra-divisoria-gifos{
+    display: none;
+    border: 1px solid #9CAFC3;
+    opacity: 0.5;
+    width: 338px;
+    height: 0.1px;
+    position: relative;
+    left: 760px;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
 /*fin_barra_busqueda*/
 
 h1{
@@ -292,6 +322,55 @@ h3{
     font-weight: 400;
     font-size: 16px;
     text-align: center;
+}
+
+.boton-vermas{
+    color: #572EE5;
+    background-color: unset;
+    border: 1px solid #572EE5;
+    border-radius: 25px;
+    padding: 16px 32px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    position: relative;
+    left: 870px;
+    display: none;
+}
+
+.boton-vermas:hover{
+    background-color: #572EE5;
+    color: #ffffff;
+}
+
+div#trending-text{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+}
+.palabraTrend{
+    padding-left: 10px;
+    cursor: pointer;
+    color: #572EE5;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sugerencias-trending{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sugerencias-trending h3{
+    color: #572EE5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 .row{
@@ -366,12 +445,15 @@ h3{
     object-fit: cover;
 }
 
+
+
 div h2{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;
     font-size: 25px;
     font-weight: 700;
     text-align: center;
+    
 }
 
 div p{

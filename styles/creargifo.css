@@ -140,17 +140,6 @@ header .menu-creargifo:active .boton-crear-blanco {
 input[type="checkbox"] {
     display: none;
 }
-
-.menu-mobile span{
-    opacity: 0.5;
-    content: '';
-    background-color: white;
-    height: 1px;
-    display: block;
-    width: 41px;
-    position: relative;
-    left: 143px;
-}
 /*fin_menu-hamburguesa*/
 
 .crear-gifo{
@@ -288,12 +277,31 @@ input[type="checkbox"] {
     z-index: 5;
 }
 
+#overlay-video-actions{
+    display: block;
+    position: relative;
+    left: 564px;
+}
+
+#overlay-video-textos{
+    position: relative;
+    top: 220px;
+    left: 150px;
+}
+
+p#overlay-video-parrafo {
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
 #gif-grabado{
     position: absolute;
     left: 40px;
     bottom: 168px;
     width: 640px;
     height: 480px;
+    display: none;
 }
 
 video{
@@ -563,7 +571,7 @@ footer .redes-icon:hover .icon-hover{
 }
 
 /*Media Querys*/
-/*comienza responsive*/
+/*Comienza responsive*/
 @media screen and (max-width: 730px) {
     .menu-creargifo{
         display: none;
@@ -577,7 +585,7 @@ footer .redes-icon:hover .icon-hover{
     .menu-mobile ul{
         list-style-type: none;
         width: 100%;
-        height: 780%;
+        height: 760%;
         margin-left: -200%;
         position: absolute;
         transition: all 500ms ease;
@@ -634,10 +642,10 @@ footer .redes-icon:hover .icon-hover{
     /**/
     .menu-mobile li{
         width: 100vw;
-        height: 60px;
+        height: 59px;
         color: #FFFFFF;
         padding-left: 10px;
-        padding-top: 20px;
+        padding-top: 30px;
         padding-bottom: 30px;
         text-align: center;
     }
@@ -828,125 +836,4 @@ footer .redes-icon:hover .icon-hover{
 .darkmode .barra-inferior{
     width: 100%;
     border-bottom: 5px solid #000000;
-}
-
-/*comienza dark responsive*/
-@media screen and (max-width: 730px) {
-    .darkmode .boton-crear{
-        display: none;
-    }
-    .darkmode .menu-mobile{
-        display: block;
-    }
-    .darkmode .menu-desktop{
-        display: none;
-    }
-    .darkmode .menu-mobile ul{
-        list-style-type: none;
-        width: 100%;
-        height: 780%;
-        margin-left: -200%;
-        position: absolute;
-        transition: all 500ms ease;
-        font-family: 'IBM Plex Mono', monospace;
-        left: 10px;
-        top: 100px;
-    }
-    .darkmode #btn-menu:checked ~ .menu-mobile ul{
-        transform: translateX(-3vw);
-        margin: 0;
-        z-index: 1;
-        background-color: #000000;
-        opacity: 100%;
-        
-    }
-    /*burger-menu bars*/
-    .darkmode .lbl-menu{
-        width: 30px;
-        height: 30px;
-        position: relative;
-        cursor: pointer;
-        float: right;
-        margin-top: 4px;
-        top: 20px;
-        right: 20px;
-    }
-
-    .darkmode .lbl-menu #spn1{
-        position: absolute;
-        content: "";
-        background-color: #FFFFFF;
-        width: 20px;
-        height: 3px;
-        border-radius: 40px;
-        transition: all 400ms ease;
-    }
-    .darkmode .lbl-menu #spn2{
-        position: absolute;
-        content: "";
-        background-color: #FFFFFF;
-        width: 20px;
-        height: 3px;
-        border-radius: 40px;
-        transition: all 400ms ease;
-    }
-
-    .darkmode .lbl-menu #spn3{
-        position: absolute;
-        content: "";
-        background-color: #FFFFFF;
-        width: 20px;
-        height: 3px;
-        border-radius: 40px;
-        transition: all 400ms ease;
-    }
-
-    .darkmode #btn-menu:checked ~ .lbl-menu #spn1{
-        transform: rotate(140deg);
-        top: 10px;
-        background-color: #FFFFFF;
-    }
-    .darkmode #btn-menu:checked ~ .lbl-menu #spn2{
-        opacity: 0;
-    }
-    .darkmode #btn-menu:checked ~ .lbl-menu #spn3{
-        transform: rotate(-140deg);
-        top: 10px;
-        background-color: #FFFFFF;
-    }
-    /**/
-    .darkmode .menu-mobile li{
-        width: 100vw;
-        height: 60px;
-        color: #FFFFFF;
-        padding-left: 10px;
-        padding-top: 20px;
-        padding-bottom: 30px;
-        text-align: center;
-    }
-    .darkmode .aviso-cartel-mobile h2{
-        color: #FFFFFF;
-    }
-}
-
-@media screen and (max-width: 630px) {
-    .darkmode .lbl-menu{
-        position: relative;
-        right: 53px;
-        top: 12px;
-    }
-    .darkmode .logo-gifos{
-        width: 70%;
-        padding-bottom: 20px;
-        position: relative;
-        right: 28px;
-    }
-    .darkmode .footer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .darkmode .footer .redes-sociales a{
-        display: inline-block;
-    }
 }

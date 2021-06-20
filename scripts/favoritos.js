@@ -322,7 +322,7 @@ window.onload = () => {
     //TRENDING SLIDER GIFS 
     //Los trending gif que aparecen abajo se mueven de IZQ a DER segun la flecha seleccionada
     let sliderTrendingGifos = document.getElementById('gifsList');
-    let imageGifo = 1;
+    let imagenPlacaGifo = 1;
     let translateX = 0;
 
     let trendingBotonPrev = document.getElementById('slide-boton-previo');
@@ -331,14 +331,14 @@ window.onload = () => {
     trendingBotonNext.addEventListener('click', sliderNext);
     function sliderNext() {
         if (window.matchMedia("(min-width: 1440px)").matches) {
-            if (imageGifo <= 5) {
-                imageGifo++;
+            if (imagenPlacaGifo <= 8) {
+                imagenPlacaGifo++;
                 translateX -= 387;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
         } else if (window.matchMedia("(min-width: 1024px)").matches) {
-            if (imageGifo <= 5) {
-                imageGifo++;
+            if (imagenPlacaGifo <= 8) {
+                imagenPlacaGifo++;
                 translateX -= 273;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
@@ -348,14 +348,14 @@ window.onload = () => {
     trendingBotonPrev.addEventListener('click', sliderPrev);
     function sliderPrev() {
         if (window.matchMedia("(min-width: 1440px)").matches) {
-            if (imageGifo !== 1) {
-                imageGifo--;
+            if (imagenPlacaGifo !== 1) {
+                imagenPlacaGifo--;
                 translateX += 387;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
         } else if (window.matchMedia("(min-width: 1024px)").matches) {
-            if (imageGifo !== 1) {
-                imageGifo--;
+            if (imagenPlacaGifo !== 1) {
+                imagenPlacaGifo--;
                 translateX += 273;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }

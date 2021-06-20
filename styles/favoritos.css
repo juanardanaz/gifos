@@ -716,34 +716,6 @@ footer .redes-icon:hover .icon-hover{
         position: relative;
         right: 28px;
     }
-    .darkmode .seccion-primera h1{
-        font-size: 25px;
-    }
-    .darkmode .seccion-primera .wrapper .ilustracion{
-        width: 60%;
-        position: relative;
-        left: 55px;
-    }
-    .darkmode .seccion-primera h3{
-        font-size: 16px;
-    }
-    .darkmode .seccion-primera .trending{
-        font-size: 14px;
-    }
-    .darkmode .search-input input{
-        width: 109%;
-        height: 45px;
-    }
-    .darkmode .wrapper .search-input{
-        position: relative;
-        right: -6px;
-        width: 85%;
-    }
-    .darkmode .search-input .icon-search{
-        position: absolute;
-        right: 0px;
-        top: 12px;
-    }
     .darkmode .row h2{
         font-size: 17px;
     }

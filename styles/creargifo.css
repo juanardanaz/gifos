@@ -140,6 +140,17 @@ header .menu-creargifo:active .boton-crear-blanco {
 input[type="checkbox"] {
     display: none;
 }
+
+.menu-mobile span {
+    opacity: 0.5;
+    content: '';
+    background-color: white;
+    height: 1px;
+    display: block;
+    width: 41px;
+    position: relative;
+    left: 143px;
+}
 /*fin_menu-hamburguesa*/
 
 .crear-gifo{
@@ -573,7 +584,7 @@ footer .redes-icon:hover .icon-hover{
     .menu-mobile ul{
         list-style-type: none;
         width: 100%;
-        height: 760%;
+        height: 780%;
         margin-left: -200%;
         position: absolute;
         transition: all 500ms ease;
@@ -633,7 +644,7 @@ footer .redes-icon:hover .icon-hover{
         height: 59px;
         color: #FFFFFF;
         padding-left: 10px;
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 30px;
         text-align: center;
     }
@@ -940,7 +951,7 @@ footer .redes-icon:hover .icon-hover{
     /**/
     .darkmode .menu-mobile li{
         width: 100vw;
-        height: 60px;
+        height: 59px;
         color: #FFFFFF;
         padding-left: 10px;
         padding-top: 20px;
@@ -953,5 +964,25 @@ footer .redes-icon:hover .icon-hover{
         top: 53px;
         color: #FFFFFF;
     }
-
+}
+@media screen and (max-width: 630px) {
+    .darkmode .lbl-menu{
+        position: relative;
+        right: 53px;
+        top: 12px;
+    }
+    .darkmode .logo-gifos{
+        width: 70%;
+        padding-bottom: 20px;
+        position: relative;
+        right: 28px;
+    }
+    .darkmode .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .darkmode .footer .redes-sociales a{
+        display: inline-block;
+    }
 }

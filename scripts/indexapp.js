@@ -77,6 +77,7 @@ window.onload = () => {
             cambioLogoInstagramMobile();
             cambioSliderPrevioMobile();
             cambioSliderSiguienteMobile();
+            cambioCruzBusquedaMobile();
         } else {
             localStorage.setItem('oscuro', 'false');
             mobileDark.innerHTML = "Modo Nocturno";
@@ -88,6 +89,7 @@ window.onload = () => {
             cambioLogoInstagramMobile();
             cambioSliderPrevioMobile();
             cambioSliderSiguienteMobile();
+            cambioCruzBusquedaMobile();
         }
     });
 
@@ -103,6 +105,7 @@ window.onload = () => {
         cambioLogoInstagramMobile();
         cambioSliderPrevioMobile();
         cambioSliderSiguienteMobile();
+        cambioCruzBusquedaMobile();
     } else {
         document.body.classList.remove("darkmode");
         mobileDark.innerHTML = "Modo Nocturno";
@@ -114,6 +117,7 @@ window.onload = () => {
         cambioLogoInstagramMobile();
         cambioSliderPrevioMobile();
         cambioSliderSiguienteMobile();
+        cambioCruzBusquedaMobile();
     };
 
     //Cambio DESKTOP
@@ -339,6 +343,16 @@ window.onload = () => {
             logoInstagramHover.setAttribute('src', './img/icon_instagram_noc.svg');
         }
     }
+
+    //Cambio Cruz Barra Busqueda MOBILE
+    function cambioCruzBusquedaMobile() {
+        let cruzCierreBusqueda = document.getElementById('cierre busqueda');
+            if (mobileDark.innerHTML == "Modo Nocturno") {
+                cruzCierreBusqueda.setAttribute('src', './img/close.svg');
+            } else {
+                cruzCierreBusqueda.setAttribute('src', './img/close-modo-noct.svg');
+            }
+        }
 
     //Defino variables y capturo elementos GENERAL
     let apiKey = 'eGTgEy8j7cI5AWF5SU1DcOTTbvsu0rLy'

@@ -457,6 +457,25 @@ window.onload = () => {
 
     getTrendingGifs();
 
+    //CLICK EN LUPA - BUSCADOR GIFOS
+    search.addEventListener('click', getSearchedGifs);
+    searchTerm.addEventListener('keyup', function (e) {
+        if (e.keyCode === 13) {
+            getSearchedGifs();
+        }
+    });
+
+    //LIMPIAR - BUSCADOR GIFOS
+    cruzCierreBusqueda.addEventListener('click', borrarBusqueda);
+    function borrarBusqueda() {
+        searchTerm.value = "";
+        searchTerm.placeholder = "Busca GIFOS y más";
+        search.style.display = "block";
+        cruzCierreBusqueda.style.display = "none";
+        barraDivisoriaBusqueda.style.display = "none";
+        suggestions.style.display = "none";
+}
+
 
     //VER MAS RESULTADOS
     // let botonVerMas = document.getElementById('boton-vermas');
@@ -464,15 +483,6 @@ window.onload = () => {
     // function verMasResultados(){
     //     searchTerm.value = searchTerm.value + 12;
     //     getSearchedGifs();
-    // }
-
-    //LIMPIAR BUSQUEDA BARRA GIFOS
-    // cruzCierreBusqueda.addEventListener('click', borrarBusqueda);
-    // function borrarBusqueda() {
-    //     searchTerm.value = "";
-    //     searchTerm.placeholder = "Busca GIFOS y más";
-    //     search.style.display = "block";
-    //     cruzCierreBusqueda.style.display = "none";
     // }
 
     //TRENDING SLIDER GIFS 

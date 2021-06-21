@@ -475,7 +475,26 @@ window.onload = () => {
         for (let i = 0; i < searchgGifs.length; i++) {
             newItem = document.createElement('li');
             newItem.classList.add('listItem');
-            newItem.innerHTML = `<img src="${searchgGifs[i].images.original.url}" class="listItem__image"/>`;
+            newItem.innerHTML = `<div class="resultado-busqueda-gifos">
+                                    <div class="overlay-acciones">
+                                        <div class="gif-acciones">
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-fav.svg" alt="favoritear icon">
+                                            </button>
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-download.svg" alt="icono descargar">
+                                            </button>
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-max-normal.svg" alt="icono maximizar imagen">
+                                            </button>
+                                        </div>
+                                        <div class="informacion-gif-resultados">
+                                            <p class="user-gif-resultados">${searchgGifs[i].username}</p>
+                                            <p class="titulo-gif-resultados">${searchgGifs[i].title}</p>
+                                        </div>
+                                    </div>
+                                    <img src="${searchgGifs[i].images.original.url}" class="listItem__image"/>
+                                </div>`;
             tituloBusqueda.innerHTML = searchTerm.value;
             barraDivisoriaGifos.style.display = "block";
             botonVerMas.style.display = "block";

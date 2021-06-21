@@ -167,7 +167,7 @@ window.onload = () => {
             iconoSlidePrevioHover.setAttribute('src', './img/button-slider-left-hover.svg');
         } else {
             iconoSlidePrevio.setAttribute('src', './img/button-slider-left-md-noct.svg');
-            iconoSlidePrevioHover.setAttribute('src', './img/button-slider-left-hover.svg');
+            iconoSlidePrevioHover.setAttribute('src', './img/button-slider-left-md-noct-hover.png');
         }
     }
 
@@ -181,7 +181,7 @@ window.onload = () => {
             iconoSliderSiguienteHover.setAttribute('src', './img/Button-Slider-right-hover.svg');
         } else {
             iconoSliderSiguiente.setAttribute('src', './img/button-slider-right-md-noct.svg');
-            iconoSliderSiguienteHover.setAttribute('src', './img/Button-Slider-right-hover.svg');
+            iconoSliderSiguienteHover.setAttribute('src', './img/button-slider-right-md-noct-hover.png');
         }
     }
 

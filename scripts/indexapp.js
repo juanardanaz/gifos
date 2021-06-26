@@ -1,4 +1,4 @@
-window.onload = () => {
+
     //MODO NOCTURNO
     //MODO NOCTURNO DESKTOP 
     const bdark = document.getElementById("bdark");
@@ -368,6 +368,7 @@ window.onload = () => {
     let tituloBusqueda = document.getElementById('titulo-busqueda')
     let barraDivisoriaBusqueda = document.getElementById('barra-divisoria') 
     let barraDivisoriaGifos = document.getElementById('barra-divisoria-gifos')
+    let maxGifLayout = document.createElement('div');
 
     //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
@@ -388,28 +389,6 @@ window.onload = () => {
 
     //SECCION TRENDING TOPIC (texto)
     //Muestro los top 5 de trending topics en gifs
-    // async function getTrendingText() { //Aqui van los gifs trending topic del momento
-    //     let response = await fetch(`https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`)
-    //     response = await response.json()
-    //     renderTrendingText(response.data)
-    // }
-
-    // function renderTrendingText(trendingText){
-    //     trendingTopicTexto.innerHTML= '';
-    //     for (let i = 0; i < trendingText.length; i++) {
-    //         let newText = document.createElement('p')
-    //         newText.classList.add('trendtext')
-    //         newText.innerHTML = `<span class="trending-topics-link">${trendingText[0]}</span>
-    //                             <span class="trending-topics-link">${trendingText[1]}</span>
-    //                             <span class="trending-topics-link">${trendingText[2]}</span>
-    //                             <span class="trending-topics-link">${trendingText[3]}</span>
-    //                             <span class="trending-topics-link">${trendingText[4]}</span>`
-    //         trendingTopicTexto.appendChild(newText)
-    //     }
-    // }
-
-    // getTrendingText();
-
     function palabrasTrending() {
         let url = `https://api.giphy.com/v1/trending/searches?api_key=${apiKey}`;
         fetch(url)
@@ -447,7 +426,7 @@ window.onload = () => {
         for (let i = 0; i < suggestion.length; i++) {
             let newItem = document.createElement('li')
             newItem.classList.add('listSuggestions')
-            newItem.innerHTML = `<span><img src="./img/icon-search-mod-noc.svg" alt="icono-lupa">${suggestion[i].name}</span>`
+            newItem.innerHTML = `<span><img src="./img/icon-search.svg" alt="icono-lupa">${suggestion[i].name}</span>`
             search.style.display = "none";
             cruzCierreBusqueda.style.display = "block";
             barraDivisoriaBusqueda.style.display = "block"
@@ -479,18 +458,18 @@ window.onload = () => {
                                     <div class="overlay-acciones">
                                         <div class="gif-acciones">
                                             <button class="boton-accion-gif">
-                                                <img src="./img/icon-fav.svg" alt="favoritear icon">
+                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito">
+                                            </button>
+                                            <button class="boton-accion-gif" >
+                                                <img src="./img/icon-download.svg" alt="descargar" id="boton-descargar" onclick="descargarGifo('${searchgGifs[i].images.downsized.url}', '${searchgGifs[i].slug}')">
                                             </button>
                                             <button class="boton-accion-gif">
-                                                <img src="./img/icon-download.svg" alt="icono descargar">
-                                            </button>
-                                            <button class="boton-accion-gif">
-                                                <img src="./img/icon-max-normal.svg" alt="icono maximizar imagen">
+                                                <img src="./img/icon-max-normal.svg" alt="maximizar imagen" id="boton-maximizar" onclick="maximGif('${searchgGifs[i].images.downsized.url}', '${searchgGifs[i].id}', '${searchgGifs[i].slug}', '${searchgGifs[i].username}', '${searchgGifs[i].title}')">
                                             </button>
                                         </div>
                                         <div class="informacion-gif-resultados">
-                                            <p class="user-gif-resultados">${searchgGifs[i].username}</p>
-                                            <p class="titulo-gif-resultados">${searchgGifs[i].title}</p>
+                                            <p class="usuario-gif">${searchgGifs[i].username}</p>
+                                            <p class="titulo-gif">${searchgGifs[i].title}</p>
                                         </div>
                                     </div>
                                     <img src="${searchgGifs[i].images.original.url}" class="listItem__image"/>
@@ -498,11 +477,62 @@ window.onload = () => {
             tituloBusqueda.innerHTML = searchTerm.value;
             barraDivisoriaGifos.style.display = "block";
             botonVerMas.style.display = "block";
+            suggestions.innerHTML = '';
+            search.style.display = "block";
+            cruzCierreBusqueda.style.display = "none";
+            barraDivisoriaBusqueda.style.display = "none";
             rtaBusquedaGifos.appendChild(newItem);
         }
     }
 
     getTrendingGifs();
+
+    //DESCARGAR GIF
+    let botonDescargarGif = document.getElementById('boton-descargar');
+    function descargarGifo(url, filename){
+            fetch(url).then(
+                (response) => {
+                    return response.blob().then( 
+                    (response) => {
+                        let gifoDescarga = document.createElement('a')
+                        gifoDescarga.href = URL.createObjectURL(response)
+                        gifoDescarga.setAttribute('download', filename);
+                        gifoDescarga.click();
+                    }
+                )
+            }
+        )
+    }
+
+    //MAXIMIZAR GIF DESKTOP 
+    function maximGif(images, id, username, title, slug) {
+    maxGifLayout.style.display = 'block';
+    maxGifLayout.innerHTML = `
+    <div><img src="./img/close.svg" alt="icono cierre ventana" class="cierre-ventana-max" onclick="cierreVentanaMax()"></div>
+    <div class="container-max-gral">
+            <div><img src="./img/button-slider-left.svg" alt="boton-previo" id="botonPrevioMax"></div>
+            <div><img src="${images}" alt="${id}" class="imagen-max-gif"></div>
+            <div><img src="./img/Button-Slider-right.svg" alt="boton-siguiente" id="botonSigMax"></div>
+    </div>
+    <div class="info-acciones">
+        <div class="informacion-gif-resultados">
+            <p class="usuario-gif">${username}</p>
+            <p class="titulo-gif">${title}</p>
+        </div> 
+        <div class="acciones-max-gif">
+            <div><img src="./img/icon-fav.svg" alt="favorito icono"></div>
+            <div onclick="descargarGifo('${images}', '${slug}')"><img src="./img/icon-download.svg" alt="icono descargar" class="descarga-max-gif"></div>
+        </div>
+    </div>
+    `;
+    maxGifLayout.classList.add("containerMaxGif");
+    document.body.appendChild(maxGifLayout);
+    }
+
+    //Cerrar Ventana en Maximizar Gif Desktop
+    function cierreVentanaMax() {
+    maxGifLayout.style.display = 'none';
+    }
 
     //ENTER EN BARRA BUSQUEDA
     search.addEventListener('click', getSearchedGifs);
@@ -523,15 +553,6 @@ window.onload = () => {
         barraDivisoriaBusqueda.style.display = "none";
         suggestions.style.display = "none";
 }
-
-
-    //VER MAS RESULTADOS
-    // let botonVerMas = document.getElementById('boton-vermas');
-    // botonVerMas.addEventListener('click', verMasResultados);
-    // function verMasResultados(){
-    //     searchTerm.value = searchTerm.value + 12;
-    //     getSearchedGifs();
-    // }
 
     //TRENDING SLIDER GIFS 
     //Los trending gif que aparecen abajo se mueven de IZQ a DER segun la flecha seleccionada
@@ -575,5 +596,5 @@ window.onload = () => {
             }
         }
     }
-}
+
 

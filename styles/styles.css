@@ -427,6 +427,7 @@ div#trending-text{
 }
 
 /* Gifs traidos en pantalla - Inicio */
+
 #respuesta-busqueda-gifos {
     display: flex;
     flex-wrap: wrap;
@@ -495,19 +496,88 @@ div#trending-text{
     left: 10px;
 }
 
-#respuesta-busqueda-gifos .listItem  .informacion-gif-resultados .user-gif-resultados{
+#respuesta-busqueda-gifos .listItem  .informacion-gif-resultados .usuario-gif{
     color: #FFFFFF;
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
 }
 
-#respuesta-busqueda-gifos .listItem .informacion-gif-resultados .titulo-gif-resultados{
+#respuesta-busqueda-gifos .listItem .informacion-gif-resultados .titulo-gif{
     color: #FFFFFF;
     font-size: 15px;
     font-family: 'Roboto', bold;
 }
-
 /*  Gifs traidos en pantalla - Fin */
+
+/* Gif Maximizar Imagen - Inicio*/
+.containerMaxGif {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 200%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+.cierre-ventana-max{
+    float: right;
+    padding-top: 60px;
+    padding-right: 60px;
+    cursor: pointer;
+}
+
+.container-max-gral{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.imagen-max-gif{
+    width: 695px;
+    height: 385px;
+}
+
+.info-acciones{
+    display: flex;
+    justify-content: center;
+}
+
+.informacion-gif-resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    position: relative;
+    right: 140px;
+}
+
+.informacion-gif-resultados .usuario-gif{
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.informacion-gif-resultados .titulo-gif{
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.acciones-max-gif{
+    display: flex;
+    position: relative;
+    left: 65px;
+}
+
+.descarga-max-gif{
+    cursor: pointer;
+}
+
+/* Gif Maximizar Imagen - Fin*/
 
 div h2{
     color: #572EE5;

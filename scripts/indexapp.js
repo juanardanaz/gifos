@@ -382,7 +382,27 @@
         for (let i = 0; i < trendingGifs.length; i++) {
             newItem = document.createElement('div')
             newItem.classList.add('listItem')
-            newItem.innerHTML = `<img src="${trendingGifs[i].images.original.url}" class="listItem__image" />`
+            newItem.innerHTML = 
+                                `<div class="resultado-busqueda-gifos">
+                                    <div class="overlay-acciones">
+                                        <div class="gif-acciones">
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito" onclick="sumarFavorito">
+                                            </button>
+                                            <button class="boton-accion-gif" >
+                                                <img src="./img/icon-download.svg" alt="descargar" id="boton-descargar" onclick="descargarGifo('${trendingGifs[i].images.downsized.url}', '${trendingGifs[i].slug}')">
+                                            </button>
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-max-normal.svg" alt="maximizar imagen" id="boton-maximizar" onclick="maximGif('${trendingGifs[i].images.downsized.url}', '${trendingGifs[i].id}', '${trendingGifs[i].slug}', '${trendingGifs[i].username}', '${trendingGifs[i].title}')">
+                                            </button>
+                                        </div>
+                                        <div class="informacion-gif-resultados">
+                                            <p class="usuario-gif">${trendingGifs[i].username}</p>
+                                            <p class="titulo-gif">${trendingGifs[i].title}</p>
+                                        </div>
+                                    </div>
+                                    <img src="${trendingGifs[i].images.original.url}" class="listItem__image" />
+                                </div>`
             gifsList.appendChild(newItem)
         }
     }
@@ -504,7 +524,7 @@
         )
     }
 
-    //MAXIMIZAR GIF DESKTOP 
+    //MAXIMIZAR GIF  
     function maximGif(images, id, username, title, slug) {
     maxGifLayout.style.display = 'block';
     maxGifLayout.innerHTML = `
@@ -529,7 +549,7 @@
     document.body.appendChild(maxGifLayout);
     }
 
-    //Cerrar Ventana en Maximizar Gif Desktop
+    //Cerrar Ventana en Maximizar Gif 
     function cierreVentanaMax() {
     maxGifLayout.style.display = 'none';
     }
@@ -565,13 +585,12 @@
 
     trendingBotonNext.addEventListener('click', sliderNext);
     function sliderNext() {
-        if (window.matchMedia("(min-width: 1440px)").matches) {
-            if (imagenPlacaGifo <= 8) {
+        if (imagenPlacaGifo <= 8) {
                 imagenPlacaGifo++;
                 translateX -= 387;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
-        } else if (window.matchMedia("(min-width: 1024px)").matches) {
+        else  {
             if (imagenPlacaGifo <= 8) {
                 imagenPlacaGifo++;
                 translateX -= 273;
@@ -582,13 +601,12 @@
 
     trendingBotonPrev.addEventListener('click', sliderPrev);
     function sliderPrev() {
-        if (window.matchMedia("(min-width: 1440px)").matches) {
             if (imagenPlacaGifo !== 1) {
                 imagenPlacaGifo--;
                 translateX += 387;
                 sliderTrendingGifos.style.transform = `translateX(${translateX}px)`;
             }
-        } else if (window.matchMedia("(min-width: 1024px)").matches) {
+        else  {
             if (imagenPlacaGifo !== 1) {
                 imagenPlacaGifo--;
                 translateX += 273;
@@ -596,5 +614,6 @@
             }
         }
     }
+
 
 

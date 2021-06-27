@@ -291,14 +291,6 @@ h3{
     text-align: center;
 }
 
-/* .trending{
-    color: #572EE5;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    text-align: center;
-} */
-
 .trendtext{
     color: #572EE5;
     font-family: 'Montserrat', sans-serif;
@@ -373,7 +365,7 @@ div#trending-text{
 }
 
 .container-trending .trending-slider-container {
-    width: 1037px;
+    width: 1050px;
     overflow: hidden;
 }
 .container-trending .boton-previo .boton-previo-hover {
@@ -508,6 +500,69 @@ div#trending-text{
     font-family: 'Roboto', bold;
 }
 /*  Gifs traidos en pantalla - Fin */
+
+/*  Trending Gifs en pantalla - Inicio */
+#gifsList .listItem__image{
+    width: 357px;
+    height: 275px;
+    padding-right: 22px;
+    margin-bottom: 26px;
+}
+
+#gifsList .listItem .overlay-acciones{
+    display: none;
+}
+
+#gifsList .listItem:hover .overlay-acciones{
+    display: block;
+}
+
+#gifsList .listItem .gif-acciones{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#gifsList .listItem .gif-acciones .boton-accion-gif{
+    border: none;
+    background: none;
+}
+
+#gifsList .listItem .gif-acciones .boton-accion-gif img{
+    padding-left: 10px;
+}
+
+#gifsList .listItem .gif-acciones .informacion-gif-resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: 150px;
+    left: 10px;
+}
+
+#gifsList .listItem .informacion-gif-resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: 150px;
+    left: 10px;
+}
+
+#gifsList .listItem  .informacion-gif-resultados .usuario-gif{
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#gifsList .listItem .informacion-gif-resultados .titulo-gif{
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: 'Roboto', bold;
+}
+/*  Trending Gifs en pantalla - Fin */
 
 /* Gif Maximizar Imagen - Inicio*/
 .containerMaxGif {

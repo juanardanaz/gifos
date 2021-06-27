@@ -180,12 +180,14 @@ input[type="checkbox"] {
 
 .search-input input{
     height: 55px;
-    width: 100%;
+    width: 90%;
     outline: none;
     border: none;
     border-radius: 35px;
     padding: 0 60px 0 20px;
     font-size: 16px;
+    position: relative;
+    left: 33px;
 }
 
 .search-input .icon-search{
@@ -234,9 +236,18 @@ input[type="checkbox"] {
 
 .barra-divisoria{
     border: 1px solid #9CAFC3;
+    opacity: 0.5;
     width: 90%;
     margin-left: 20px;
     display: none;
+}
+
+#lupa-input-busqueda{
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 18px;
+    z-index: 1;
 }
 
 .listSuggestions{
@@ -249,6 +260,13 @@ input[type="checkbox"] {
     padding-top: 10px;
 }
 
+.listSuggestions span{
+    display: flex;
+}
+
+.listSuggestions .lupa-sugerencia-busqueda {
+    padding-right: 10px;
+}
 
 #barra-divisoria-gifos{
     display: none;

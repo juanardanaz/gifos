@@ -369,6 +369,7 @@
     let barraDivisoriaBusqueda = document.getElementById('barra-divisoria') 
     let barraDivisoriaGifos = document.getElementById('barra-divisoria-gifos')
     let maxGifLayout = document.createElement('div');
+    let lupaBarraInput = document.getElementById('lupa-input-busqueda');
 
     //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
@@ -446,7 +447,8 @@
         for (let i = 0; i < suggestion.length; i++) {
             let newItem = document.createElement('li')
             newItem.classList.add('listSuggestions')
-            newItem.innerHTML = `<span><img src="./img/icon-search.svg" alt="icono-lupa">${suggestion[i].name}</span>`
+            newItem.innerHTML = `<span><img src="./img/icon-search.svg" alt="icono-lupa" class="lupa-sugerencia-busqueda">${suggestion[i].name}</span>`
+            lupaBarraInput.style.display = "block";
             search.style.display = "none";
             cruzCierreBusqueda.style.display = "block";
             barraDivisoriaBusqueda.style.display = "block"
@@ -458,6 +460,7 @@
                 search.style.display = "block";
                 cruzCierreBusqueda.style.display = "none";
                 barraDivisoriaBusqueda.style.display = "none";
+                lupaBarraInput.style.display = "none";
                 getSearchedGifs()
             })
         }
@@ -501,6 +504,7 @@
             search.style.display = "block";
             cruzCierreBusqueda.style.display = "none";
             barraDivisoriaBusqueda.style.display = "none";
+            lupaBarraInput.style.display = "none";
             rtaBusquedaGifos.appendChild(newItem);
         }
     }
@@ -526,25 +530,25 @@
 
     //MAXIMIZAR GIF  
     function maximGif(images, id, username, title, slug) {
-    maxGifLayout.style.display = 'block';
-    maxGifLayout.innerHTML = `
-    <div><img src="./img/close.svg" alt="icono cierre ventana" class="cierre-ventana-max" onclick="cierreVentanaMax()"></div>
-    <div class="container-max-gral">
-            <div><img src="./img/button-slider-left.svg" alt="boton-previo" id="botonPrevioMax"></div>
-            <div><img src="${images}" alt="${id}" class="imagen-max-gif"></div>
-            <div><img src="./img/Button-Slider-right.svg" alt="boton-siguiente" id="botonSigMax"></div>
-    </div>
-    <div class="info-acciones">
-        <div class="informacion-gif-resultados">
-            <p class="usuario-gif">${username}</p>
-            <p class="titulo-gif">${title}</p>
-        </div> 
-        <div class="acciones-max-gif">
-            <div><img src="./img/icon-fav.svg" alt="favorito icono"></div>
-            <div onclick="descargarGifo('${images}', '${slug}')"><img src="./img/icon-download.svg" alt="icono descargar" class="descarga-max-gif"></div>
+        maxGifLayout.style.display = 'block';
+        maxGifLayout.innerHTML = `
+        <div><img src="./img/close.svg" alt="icono cierre ventana" class="cierre-ventana-max" onclick="cierreVentanaMax()"></div>
+        <div class="container-max-gral">
+                <div><img src="./img/button-slider-left.svg" alt="boton-previo" id="botonPrevioMax"></div>
+                <div><img src="${images}" alt="${id}" class="imagen-max-gif"></div>
+                <div><img src="./img/Button-Slider-right.svg" alt="boton-siguiente" id="botonSigMax"></div>
         </div>
-    </div>
-    `;
+        <div class="info-acciones">
+            <div class="informacion-gif-resultados">
+                <p class="usuario-gif">${username}</p>
+                <p class="titulo-gif">${title}</p>
+            </div> 
+            <div class="acciones-max-gif">
+                <div><img src="./img/icon-fav.svg" alt="favorito icono"></div>
+                <div onclick="descargarGifo('${images}', '${slug}')"><img src="./img/icon-download.svg" alt="icono descargar" class="descarga-max-gif"></div>
+            </div>
+        </div>
+        `;
     maxGifLayout.classList.add("containerMaxGif");
     document.body.appendChild(maxGifLayout);
     }
@@ -572,6 +576,7 @@
         cruzCierreBusqueda.style.display = "none";
         barraDivisoriaBusqueda.style.display = "none";
         suggestions.style.display = "none";
+        lupaBarraInput.style.display = "none";
 }
 
     //TRENDING SLIDER GIFS 

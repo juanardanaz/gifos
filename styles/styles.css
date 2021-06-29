@@ -248,11 +248,12 @@ input[type="checkbox"] {
     left: 20px;
     top: 18px;
     z-index: 1;
+    color: #9CAFC3;
 }
 
 .listSuggestions{
     list-style-type: none;
-    color: #000000;
+    color: #9CAFC3;
     position: relative;     
     left: 20px;
     font-family: 'Roboto', sans-serif;
@@ -278,6 +279,24 @@ input[type="checkbox"] {
     left: 760px;
     margin-top: 100px;
     margin-bottom: 30px;
+}
+
+.container-error{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+}
+
+.container-error .imagen-error-busqueda{
+    padding-bottom: 40px;
+}
+
+.container-error .texto-error-busqueda{
+    text-align: center;
+    color: #50E3C2;
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
 }
 /*fin_barra_busqueda*/
 

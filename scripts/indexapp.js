@@ -447,7 +447,7 @@
         for (let i = 0; i < suggestion.length; i++) {
             let newItem = document.createElement('li')
             newItem.classList.add('listSuggestions')
-            newItem.innerHTML = `<span><img src="./img/icon-search.svg" alt="icono-lupa" class="lupa-sugerencia-busqueda">${suggestion[i].name}</span>`
+            newItem.innerHTML = `<span><img src="./img/icon-search-grey.png" alt="icono-lupa" class="lupa-sugerencia-busqueda">${suggestion[i].name}</span>`
             lupaBarraInput.style.display = "block";
             search.style.display = "none";
             cruzCierreBusqueda.style.display = "block";
@@ -469,7 +469,22 @@
     async function getSearchedGifs () { //Aqui se buscan los gifs en la barra de busqueda
         let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm.value}&limit=12&offset=0&rating=g&lang=en`)
         response = await response.json()
-        renderSearchedGifs(response.data)
+        // renderSearchedGifs(response.data)
+    
+        //Aqui aclaro por si la busqueda da ERROR 
+        if (response.data == 0 || response.data == null) {
+            rtaBusquedaGifos.innerHTML = `
+                <div class="container-error">
+                    <img src="./img/icon-busqueda-sin-resultado.svg" alt="error de busqueda" class="imagen-error-busqueda">
+                    <p class="texto-error-busqueda">Intenta con otra búsqueda</p>
+                </div>`;
+            botonVerMas.style.display = "none";
+            tituloBusqueda.innerHTML = searchTerm.value;
+            barraDivisoriaGifos.style.display = "block";
+        } else {
+            renderSearchedGifs(response.data)
+        }
+    
     }
 
     function renderSearchedGifs(searchgGifs) { //Aqui se pintan en pantalla los resultados de la barra de busqueda

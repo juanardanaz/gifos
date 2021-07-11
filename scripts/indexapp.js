@@ -370,6 +370,7 @@
     let barraDivisoriaGifos = document.getElementById('barra-divisoria-gifos')
     let maxGifLayout = document.createElement('div');
     let lupaBarraInput = document.getElementById('lupa-input-busqueda');
+    let traerMasGifs = 0;
 
     //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
@@ -592,6 +593,48 @@
         barraDivisoriaBusqueda.style.display = "none";
         suggestions.style.display = "none";
         lupaBarraInput.style.display = "none";
+}
+
+//BOTON VER MAS RESULTADOS
+botonVerMas.addEventListener('click', verMasGifs);
+function verMasGifs(){
+    traerMasGifs = traerMasGifs + 12;
+    buscarMasGifs();
+}
+
+async function buscarMasGifs() { //Aqui se buscan mas gifs
+    let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm.value}&limit=12&offset=0&rating=g&lang=en`)
+    response = await response.json();
+    renderBuscarMas(response.data);
+}
+
+function renderBuscarMas(verMasGifs) { //Aqui se pintan en pantalla los resultados de ver mas
+    // rtaBusquedaGifos.innerHTML = '';
+    for (let i = 0; i < verMasGifs.length; i++) {
+        newGifs = document.createElement('li');
+        newGifs.classList.add('listItem');
+        newGifs.innerHTML = `<div class="resultado-busqueda-gifos">
+                                <div class="overlay-acciones">
+                                    <div class="gif-acciones">
+                                        <button class="boton-accion-gif">
+                                            <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito${verMasGifs[i].id}" onclick="sumarFavoritoGif('${verMasGifs[i].id}')">
+                                        </button>
+                                        <button class="boton-accion-gif" >
+                                            <img src="./img/icon-download.svg" alt="descargar" id="boton-descargar" onclick="descargarGifo('${verMasGifs[i].images.downsized.url}', '${verMasGifs[i].slug}')">
+                                        </button>
+                                        <button class="boton-accion-gif">
+                                            <img src="./img/icon-max-normal.svg" alt="maximizar imagen" id="boton-maximizar" onclick="maximGif('${verMasGifs[i].images.downsized.url}', '${verMasGifs[i].id}', '${verMasGifs[i].slug}', '${verMasGifs[i].username}', '${verMasGifs[i].title}')">
+                                        </button>
+                                    </div>
+                                    <div class="informacion-gif-resultados">
+                                        <p class="usuario-gif">${verMasGifs[i].username}</p>
+                                        <p class="titulo-gif">${verMasGifs[i].title}</p>
+                                    </div>
+                                </div>
+                                <img src="${verMasGifs[i].images.original.url}" class="listItem__image"/>
+                            </div>`;
+        rtaBusquedaGifos.appendChild(newGifs);
+    }
 }
 
     //TRENDING SLIDER GIFS 

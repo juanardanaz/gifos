@@ -225,7 +225,6 @@ window.onload = () => {
     }
 
     //CREAR TU PROPIO GIFO
-    //Capturo elementos generales
     let apiKey = 'eGTgEy8j7cI5AWF5SU1DcOTTbvsu0rLy'
     let botonComenzar = document.getElementById('boton-creargifo-comenzar');
     let botonGrabar = document.getElementById('boton-creargifo-grabar');
@@ -248,7 +247,184 @@ window.onload = () => {
     let video = document.getElementById('grabacion-video');
     let gifGrabado = document.getElementById('gif-grabado');
 
+    //Hago click en "COMENZAR", el texto de la pantalla se modifica y aparece el cartel pidiendo permiso. Paso 1 activo
+    botonComenzar.addEventListener('click', comenzarGifo);
 
+    function comenzarGifo() {
+        botonComenzar.style.display = "none";
+        let tituloGrabar = document.getElementById('titulo-grabargifo');
+        let textoGrabar = document.getElementById('texto-grabargifo');
+        tituloGrabar.innerHTML = "¿Nos das acceso </br>a tu cámara?";
+        textoGrabar.innerHTML = "El acceso a tu camara será válido sólo </br>por el tiempo en el que estés creando el GIFO."
 
+        pasosCrearActivo[0].classList.add('paso-activo');
 
+        //Funcion para pedir permisos a la camara/microfono
+        navigator.mediaDevices.getUserMedia({ audio: false, 
+                                            video: {
+                                                width: { min: 480 },
+                                                height: { min: 320 }
+                                            }
+                                            })
+            //Autorizo el acceso: aparece la camara y el boton GRABAR. Paso 2 activo
+            .then(function (mediaStream) {
+                //Comando para desaparecer el texto
+                tituloGrabar.style.display = "none";
+                textoGrabar.style.display = "none";
+                botonGrabar.style.display = "block";
+
+                pasosCrearActivo[0].classList.remove('paso-activo');
+                pasosCrearActivo[1].classList.add('paso-activo');
+
+                //Comando para que aparezca el video
+                video.style.display = "block";
+                video.srcObject = mediaStream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
+                recorder = RecordRTC(mediaStream, {
+                    type: 'gif'
+                });
+            })
+    }
+
+    //Hago click en "GRABAR" y comienza a grabarse el gif. El boton se modifica a "FINALIZAR", y aparece el contador de grabacion
+    botonGrabar.addEventListener('click', grabarGifo);
+
+    function grabarGifo() {
+        recorder.startRecording();
+        console.log("Su gif se está grabando");
+        botonGrabar.style.display = "none";
+        botonFinalizar.style.display = "block";
+        contadorTimer.style.display = "block";
+        repetirCaptura.style.display = "none";
+
+        //Comando para el Contador de Tiempo
+        dateStarted = new Date().getTime();
+        (function looper() {
+            if (!recorder) {
+                return;
+            }
+            contadorTimer.innerHTML = contadorTiempo((new Date().getTime() - dateStarted) / 1000);
+            setTimeout(looper, 1000);
+        })();
+    }
+
+    //Hago click en "FINALIZAR". El boton se modifica a "SUBIR GIFO", el contador desaparece y aparece "Repetir Captura"
+    botonFinalizar.addEventListener('click', finalizarGifo);
+
+    function finalizarGifo() {
+
+        console.log("Gif finalizado");
+        botonFinalizar.style.display = "none";
+        botonSubirGifo.style.display = "block";
+        contadorTimer.style.display = "none";
+        repetirCaptura.style.display = "block";
+        recorder.stopRecording(function () {
+            video.style.display = "none";
+            gifGrabado.style.display = "block";
+
+            blob = recorder.getBlob();
+            gifGrabado.src = URL.createObjectURL(recorder.getBlob());
+
+            form.append('file', recorder.getBlob(), 'myGif.gif');
+            form.append('api_key', apiKey);
+        });
+    }
+
+    //Hago click en "SUBIR GIFO". Aparece overlay con icono loading y texto. Paso 3 activo
+    botonSubirGifo.addEventListener('click', subirGifo);
+
+    function subirGifo() {
+
+        //Comando para mostrar pantalla cargando y paso activo
+        overlayGifCargando.style.display = "flex";
+        botonSubirGifo.style.display = "none";
+        pasosCrearActivo[1].classList.remove('paso-activo');
+        pasosCrearActivo[2].classList.add('paso-activo');
+        repetirCaptura.style.display = "none";
+
+        fetch(`https://upload.giphy.com/v1/gifs`, {
+            method: 'POST',
+            body: form,
+        })
+            .then(response => {
+                return response.json();
+            })
+            
+            //El Gif se sube. El icono y texto se cambia. Ahora aparecen las opciones de DESCARGAR o LINK
+            .then(objeto => {
+                console.log(objeto);
+                let miGifId = objeto.data.id;
+
+                //muestro elementos del DOM subiendo gifo
+                accionesCargando.style.display = "block";
+                iconoGifCargando.setAttribute("src", "./img/check.svg");
+                textoGifCargando.innerText = "GIFO subido con éxito";
+                overlayActions.innerHTML = `
+                    <button class="overlay-video-button" id="btn-creargifo-descargar" onclick="descargarGifCreado('${miGifId}')"><img src="./img/icon-download.svg" alt="download"></button>
+                    <button class="overlay-video-button" id="btn-creargifo-link"><img src="./img/icon-link-normal.svg" alt="link"></button>`;
+
+                //De no haber nada en el localStorage, el array queda vacio
+                if (misGifosString == null) {
+                    misGifosArray = [];
+                } else { //En el caso que haya algo en el localStorage, hay que parsear para sumar otro
+                    misGifosArray = JSON.parse(misGifosString);
+                }
+                misGifosArray.push(miGifId);
+                //vuelvo a pasar a texto el array para subirlo al LS
+                misGifosString = JSON.stringify(misGifosArray);
+                localStorage.setItem("misGifos", misGifosString);
+            })
+            .catch(error => console.log("Se ha producido un error al subir gif" + error))
+    }
+
+    //FUNCION DESCARGAR GIF
+    async function descargarGifCreado(gifImg) {
+        let blob = await fetch(gifImg).then( img => img.blob());;
+        invokeSaveAsDialog(blob, "migifo.gif");
+    }
+
+    //Para REPETIR CAPTURA
+    repetirCaptura.addEventListener('click', repetirGifo);
+
+    function repetirGifo() {
+        recorder.clearRecordedData();
+        console.log("Volviendo a grabar gif");
+        repetirCaptura.style.display = "none";
+        botonSubirGifo.style.display = "none";
+        gifGrabado.style.display = "none";
+        botonGrabar.style.display = "block";
+
+        //Se piden los permisos a la camara/microfono
+        navigator.mediaDevices.getUserMedia({ audio: false, video: { width: 480, height: 320 } })
+
+            //Autorizo el acceso, aparece la camara y el boton para grabar. paso 2 activo
+            .then(function (mediaStream) {
+                //Aparece video en pantalla
+                video.style.display = "block";
+                video.srcObject = mediaStream;
+                video.onloadedmetadata = function (e) {
+                    video.play();
+                };
+                recorder = RecordRTC(mediaStream, {
+                    type: 'gif'
+                });
+            })
+    }
+
+    //Calculo el tiempo de filmacion del Gif
+    function contadorTiempo(segs) {
+        let horas = Math.floor(segs / 3600);
+        let minutos = Math.floor((segs - (horas * 3600)) / 60);
+        let segundos = Math.floor(segs - (horas * 3600) - (minutos * 60));
+
+        if (minutos < 10) {
+            minutos = "0" + minutos;
+        }
+        if (segundos < 10) {
+            segundos = "0" + segundos;
+        }
+        return horas + ':' + minutos + ':' + segundos;
+    }
 }

@@ -433,6 +433,37 @@ div p{
     text-align: center;
 }
 
+/* Gifos Creados Inicio */
+.resultados-misgifos {
+    margin: 59px 146px 47px 146px;
+}
+.resultados-gif-box-misgifos {
+    width: 260px;
+    height: 200px;
+    margin: 0 15px 31px 15px;
+}
+
+.gif-acciones-resultados-misgifos {
+    position: absolute;
+    z-index: 0;
+    width: 260px;
+    height: 200px;
+}
+
+.gif-acciones-resultados-misgifos:hover{
+    background-color: #572EE5;
+    opacity: 0.6;
+    display: block;
+}
+
+.iconos-acciones-gif {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+/* Gifos Creados Fin */
+
 .footer{
     display: flex;
     justify-content: space-between;

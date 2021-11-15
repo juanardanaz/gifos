@@ -371,6 +371,8 @@
     let maxGifLayout = document.createElement('div');
     let lupaBarraInput = document.getElementById('lupa-input-busqueda');
     let traerMasGifs = 0;
+    let gifsFavoritosArray = [];
+    let gifsFavoritosString = localStorage.getItem('favoritos');
 
     //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
@@ -497,7 +499,7 @@
                                     <div class="overlay-acciones">
                                         <div class="gif-acciones">
                                             <button class="boton-accion-gif">
-                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito">
+                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito${searchgGifs[i].id}" onclick="sumarFavoritoGif('${searchgGifs[i].id}')">
                                             </button>
                                             <button class="boton-accion-gif" >
                                                 <img src="./img/icon-download.svg" alt="descargar" id="boton-descargar" onclick="descargarGifo('${searchgGifs[i].images.downsized.url}', '${searchgGifs[i].slug}')">
@@ -567,6 +569,25 @@
         `;
     maxGifLayout.classList.add("containerMaxGif");
     document.body.appendChild(maxGifLayout);
+    }
+
+    //AGREGAR GIF A FAVORITOS
+    // let gifsFavoritosString;
+    function sumarFavoritoGif(id){
+        let iconFavorito = document.getElementById('boton-favorito'+ id);
+        iconFavorito.setAttribute('src', './img/icon-fav-active.svg');
+        sumarFavorito(id);
+    }
+
+    function sumarFavorito(id){
+        if (gifsFavoritosString == null) {
+            gifsFavoritosArray = [];
+        } else {
+            gifsFavoritosArray = JSON.parse(gifsFavoritosString);
+        }
+        gifsFavoritosArray.push(id);
+        gifsFavoritosString = JSON.stringify(gifsFavoritosArray);
+        localStorage.setItem('favoritos', gifsFavoritosString)
     }
 
     //Cerrar Ventana en Maximizar Gif 

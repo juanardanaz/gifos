@@ -298,11 +298,69 @@
 
     //SECCION TRENDING GIFS (imagen)
     //Defino variables y capturo elementos GENERAL
+    let gifsFavoritos = document.getElementById('resultados-favoritos');
+    let gifsVacio = document.getElementById('favoritos-vacio');
+    gifsFavoritosArray = [];
+    gifsFavoritosString = localStorage.getItem('favoritos');
     let apiKey = 'eGTgEy8j7cI5AWF5SU1DcOTTbvsu0rLy'
     let gifsList = document.getElementById('gifsList')
     let newItem
     let maxGifLayout = document.createElement('div');
 
+
+    buscarFavoritos();
+    //GIFOS EN FAVORTITOS
+    function buscarFavoritos() {
+        if (gifsFavoritosString == null || gifsFavoritosString == [] ) {
+            // gifsVacio.style.display = "block";
+            gifsFavoritos.style.display = "none";
+
+        } else {
+            gifsFavoritosArray = JSON.parse(gifsFavoritosString);
+            let urlFavoritos = `https://api.giphy.com/v1/gifs?ids=${gifsFavoritosArray.toString()}&api_key=${apiKey}`;
+
+            gifsFavoritos.style.display = "block";
+            gifsVacio.style.display = "none";
+
+            fetch(urlFavoritos)
+                .then(response => response.json())
+                .then(favoritos => {
+                    renderFavoritos(favoritos);
+                })
+        }
+    }
+
+    function renderFavoritos(favoritos) { //Aqui se pintan en pantalla los gifs favoritos
+        gifsFavoritosArray = favoritos.data;
+        for (let i = 0; i < gifsFavoritosArray.length; i++) {
+            // gifsFavoritos = document.createElement('li');
+            gifsFavoritos.classList.add('listFavoritos');
+            gifsFavoritos.innerHTML = 
+                                `<div class="resultado-busqueda-gifos">
+                                    <div class="overlay-acciones">
+                                        <div class="gif-acciones">
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito${favoritos.data[i].id}" onclick="sumarFavoritoGif('${favoritos.data[i].id}')">
+                                            </button>
+                                            <button class="boton-accion-gif" >
+                                                <img src="./img/icon-download.svg" alt="descargar" id="boton-descargar" onclick="descargarGifo('${favoritos.data[i].images.downsized.url}', '${favoritos.data[i].slug}')">
+                                            </button>
+                                            <button class="boton-accion-gif">
+                                                <img src="./img/icon-max-normal.svg" alt="maximizar imagen" id="boton-maximizar" onclick="maximGif('${favoritos.data[i].images.downsized.url}', '${favoritos.data[i].id}', '${favoritos.data[i].slug}', '${favoritos.data[i].username}', '${favoritos.data[i].title}')">
+                                            </button>
+                                        </div>
+                                        <div class="informacion-gif-resultados">
+                                            <p class="usuario-gif">${favoritos.data[i].username}</p>
+                                            <p class="titulo-gif">${favoritos.data[i].title}</p>
+                                        </div>
+                                    </div>
+                                    <img src="${favoritos.data[i].images.original.url}" class="listItem__image"/>
+                                </div>`;
+            // gifsFavoritosArray.appendChild(gifsFavoritos);
+        }
+    }
+
+    //SECCION TRENDING GIFS (imagen)
     async function getTrendingGifs() { //Aqui van los gifs trending topic del momento
         let response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=12&rating=g`)
         response = await response.json()

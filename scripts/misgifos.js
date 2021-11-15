@@ -312,7 +312,7 @@
 
         if (misGifosString == null || misGifosString == "[]") {
             //1. si no tengo gif creados, muestro la pantalla mis gifos vacia
-            pantallaMisGifosVacio.style.display = "block";
+            // pantallaMisGifosVacio.style.display = "block";
             pantallaMisGifos.style.display = "none";
 
         } else {

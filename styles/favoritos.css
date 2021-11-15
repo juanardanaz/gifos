@@ -204,6 +204,87 @@ h1{
     padding-top: 60px;
 }
 
+/* Gifs Favoritos en Pantalla - INICIO */
+
+#resultados-favoritos .resultado-busqueda-gifos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+#resultados-favoritos .resultado-busqueda-gifos .listItem__image{
+    width: 357px;
+    height: 275px;
+    padding-right: 22px;
+    margin-bottom: 26px;
+}
+
+#resultados-favoritos .resultado-busqueda-gifos .overlay-acciones{
+    display: none;
+}
+
+#resultados-favoritos .resultado-busqueda-gifos:hover .overlay-acciones{
+    display: block;
+}
+
+#resultados-favoritos .resultado-busqueda-gifos .overlay-acciones{
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(87, 46, 229, 0.6);
+    width: 357px;
+    height: 275px;
+}
+
+#resultados-favoritos .gif-acciones{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#resultados-favoritos .gif-acciones .boton-accion-gif{
+    border: none;
+    background: none;
+}
+
+#resultados-favoritos .gif-acciones .boton-accion-gif img{
+    padding-left: 10px;
+}
+
+#resultados-favoritos .gif-acciones .informacion-gif-resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: 150px;
+    left: 10px;
+}
+
+#resultados-favoritos .informacion-gif-resultados{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: 150px;
+    left: 10px;
+}
+
+#resultados-favoritos .informacion-gif-resultados .usuario-gif{
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#resultados-favoritos .informacion-gif-resultados .titulo-gif{
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: 'Roboto', bold;
+}
+
+/* Gifs Favoritos en Pantalla - FIN */
+
+
 .container-trending{
     display: flex;
     justify-content: space-around;

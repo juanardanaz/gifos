@@ -391,7 +391,7 @@
                                     <div class="overlay-acciones">
                                         <div class="gif-acciones">
                                             <button class="boton-accion-gif">
-                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito" onclick="sumarFavorito">
+                                                <img src="./img/icon-fav.svg" alt="añadir favorito" id="boton-favorito${trendingGifs[i].id}" onclick="sumarFavoritoGif('${trendingGifs[i].id}')">
                                             </button>
                                             <button class="boton-accion-gif" >
                                                 <img src="./img/icon-download.svg" alt="descargar" id="boton-descargar" onclick="descargarGifo('${trendingGifs[i].images.downsized.url}', '${trendingGifs[i].slug}')">
